@@ -1,0 +1,2 @@
+Pygments==2.6.1
+simplefix==1.0.14
