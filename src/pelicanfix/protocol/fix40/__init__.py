@@ -3,7 +3,7 @@ from enum import Enum
 from pelicanfix.protocol import FIXField
 
 
-class FIX40Field(Enum):
+class Field(Enum):
     ACCOUNT = FIXField('Account', 1)
     ADV_ID = FIXField('AdvId', 2)
     ADV_REF_ID = FIXField('AdvRefID', 3)

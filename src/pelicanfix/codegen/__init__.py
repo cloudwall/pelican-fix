@@ -36,7 +36,7 @@ class ProtocolCodeGenerator:
         src_lines.append('from pelicanfix.protocol import FIXField\n')
         src_lines.append('\n')
         src_lines.append('\n')
-        src_lines.append(f'class {self.protocol}Field(Enum):\n')
+        src_lines.append(f'class Field(Enum):\n')
         fields = self.dictionary.get_fields()
         fields.sort(key=lambda x: x.get_name())
         for field in self.dictionary.get_fields():

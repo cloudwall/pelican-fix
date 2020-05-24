@@ -3,7 +3,7 @@ from enum import Enum
 from pelicanfix.protocol import FIXField
 
 
-class FIX44Field(Enum):
+class Field(Enum):
     ACCOUNT = FIXField('Account', 1)
     ACCOUNT_TYPE = FIXField('AccountType', 581)
     ACCRUED_INTEREST_AMT = FIXField('AccruedInterestAmt', 159)
