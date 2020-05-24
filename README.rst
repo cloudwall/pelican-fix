@@ -28,3 +28,10 @@ Pelican runs on `Python <http://www.python.org/>`_ 3.7 or above. To install Peli
 .. code:: console
 
     pip3 install pelican-fix
+
+Credits
+-------
+
+Pelican's FIX engine is heavily based on `maxtwen's AIOPyFix <https://github.com/maxtwen/AIOPyFix>`_; the XML FIX
+specification files come from the `QuickFIX <https://github.com/quickfix/quickfix/tree/master/spec>`_ project,
+and the FIX message parsing uses `David Arnold's simplefix <https://github.com/da4089/simplefix>`_.

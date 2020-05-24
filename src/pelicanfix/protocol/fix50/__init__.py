@@ -3,7 +3,7 @@ from enum import Enum
 from pelicanfix.protocol import FIXField
 
 
-class FIX44Field(Enum):
+class FIX50Field(Enum):
     ACCOUNT = FIXField('Account', 1)
     ACCOUNT_TYPE = FIXField('AccountType', 581)
     ACCRUED_INTEREST_AMT = FIXField('AccruedInterestAmt', 159)
@@ -19,6 +19,7 @@ class FIX44Field(Enum):
     AFFECTED_SECONDARY_ORDER_ID = FIXField('AffectedSecondaryOrderID', 536)
     AFFIRM_STATUS = FIXField('AffirmStatus', 940)
     AGGREGATED_BOOK = FIXField('AggregatedBook', 266)
+    AGGRESSOR_INDICATOR = FIXField('AggressorIndicator', 1057)
     AGREEMENT_CURRENCY = FIXField('AgreementCurrency', 918)
     AGREEMENT_DATE = FIXField('AgreementDate', 915)
     AGREEMENT_DESC = FIXField('AgreementDesc', 913)
@@ -29,14 +30,18 @@ class FIX44Field(Enum):
     ALLOC_ACCT_ID_SOURCE = FIXField('AllocAcctIDSource', 661)
     ALLOC_AVG_PX = FIXField('AllocAvgPx', 153)
     ALLOC_CANC_REPLACE_REASON = FIXField('AllocCancReplaceReason', 796)
+    ALLOC_CLEARING_FEE_INDICATOR = FIXField('AllocClearingFeeIndicator', 1136)
+    ALLOC_CUSTOMER_CAPACITY = FIXField('AllocCustomerCapacity', 993)
     ALLOC_HANDL_INST = FIXField('AllocHandlInst', 209)
     ALLOC_ID = FIXField('AllocID', 70)
     ALLOC_INTEREST_AT_MATURITY = FIXField('AllocInterestAtMaturity', 741)
     ALLOC_INTERMED_REQ_TYPE = FIXField('AllocIntermedReqType', 808)
     ALLOC_LINK_ID = FIXField('AllocLinkID', 196)
     ALLOC_LINK_TYPE = FIXField('AllocLinkType', 197)
+    ALLOC_METHOD = FIXField('AllocMethod', 1002)
     ALLOC_NET_MONEY = FIXField('AllocNetMoney', 154)
     ALLOC_NO_ORDERS_TYPE = FIXField('AllocNoOrdersType', 857)
+    ALLOC_POSITION_EFFECT = FIXField('AllocPositionEffect', 1047)
     ALLOC_PRICE = FIXField('AllocPrice', 366)
     ALLOC_QTY = FIXField('AllocQty', 80)
     ALLOC_REJ_CODE = FIXField('AllocRejCode', 88)
@@ -58,6 +63,8 @@ class FIX44Field(Enum):
     APPL_QUEUE_DEPTH = FIXField('ApplQueueDepth', 813)
     APPL_QUEUE_MAX = FIXField('ApplQueueMax', 812)
     APPL_QUEUE_RESOLUTION = FIXField('ApplQueueResolution', 814)
+    APPL_VER_ID = FIXField('ApplVerID', 1128)
+    AS_OF_INDICATOR = FIXField('AsOfIndicator', 1015)
     ASGN_RPT_ID = FIXField('AsgnRptID', 833)
     ASSIGNMENT_METHOD = FIXField('AssignmentMethod', 744)
     ASSIGNMENT_UNIT = FIXField('AssignmentUnit', 745)
@@ -87,6 +94,7 @@ class FIX44Field(Enum):
     BID_REQUEST_TRANS_TYPE = FIXField('BidRequestTransType', 374)
     BID_SIZE = FIXField('BidSize', 134)
     BID_SPOT_RATE = FIXField('BidSpotRate', 188)
+    BID_SWAP_POINTS = FIXField('BidSwapPoints', 1065)
     BID_TRADE_TYPE = FIXField('BidTradeType', 418)
     BID_TYPE = FIXField('BidType', 394)
     BID_YIELD = FIXField('BidYield', 632)
@@ -100,6 +108,7 @@ class FIX44Field(Enum):
     CFI_CODE = FIXField('CFICode', 461)
     CP_PROGRAM = FIXField('CPProgram', 875)
     CP_REG_TYPE = FIXField('CPRegType', 876)
+    CALCULATED_CCY_LAST_QTY = FIXField('CalculatedCcyLastQty', 1056)
     CANCELLATION_RIGHTS = FIXField('CancellationRights', 480)
     CARD_EXP_DATE = FIXField('CardExpDate', 490)
     CARD_HOLDER_NAME = FIXField('CardHolderName', 488)
@@ -123,6 +132,7 @@ class FIX44Field(Enum):
     CLEARING_INSTRUCTION = FIXField('ClearingInstruction', 577)
     CLIENT_BID_ID = FIXField('ClientBidID', 391)
     COLL_ACTION = FIXField('CollAction', 944)
+    COLL_APPL_TYPE = FIXField('CollApplType', 1043)
     COLL_ASGN_ID = FIXField('CollAsgnID', 902)
     COLL_ASGN_REASON = FIXField('CollAsgnReason', 895)
     COLL_ASGN_REF_ID = FIXField('CollAsgnRefID', 907)
@@ -152,6 +162,7 @@ class FIX44Field(Enum):
     CONT_AMT_CURR = FIXField('ContAmtCurr', 521)
     CONT_AMT_TYPE = FIXField('ContAmtType', 519)
     CONT_AMT_VALUE = FIXField('ContAmtValue', 520)
+    CONT_INT_RPT_ID = FIXField('ContIntRptID', 977)
     CONTRA_BROKER = FIXField('ContraBroker', 375)
     CONTRA_LEG_REF_ID = FIXField('ContraLegRefID', 655)
     CONTRA_TRADE_QTY = FIXField('ContraTradeQty', 437)
@@ -172,9 +183,12 @@ class FIX44Field(Enum):
     CROSS_PERCENT = FIXField('CrossPercent', 413)
     CROSS_PRIORITIZATION = FIXField('CrossPrioritization', 550)
     CROSS_TYPE = FIXField('CrossType', 549)
+    CSTM_APPL_VER_ID = FIXField('CstmApplVerID', 1129)
     CUM_QTY = FIXField('CumQty', 14)
     CURRENCY = FIXField('Currency', 15)
+    CUST_DIRECTED_ORDER = FIXField('CustDirectedOrder', 1029)
     CUST_ORDER_CAPACITY = FIXField('CustOrderCapacity', 582)
+    CUST_ORDER_HANDLING_INST = FIXField('CustOrderHandlingInst', 1031)
     CXL_QTY = FIXField('CxlQty', 84)
     CXL_REJ_REASON = FIXField('CxlRejReason', 102)
     CXL_REJ_RESPONSE_TO = FIXField('CxlRejResponseTo', 434)
@@ -185,8 +199,10 @@ class FIX44Field(Enum):
     DAY_BOOKING_INST = FIXField('DayBookingInst', 589)
     DAY_CUM_QTY = FIXField('DayCumQty', 425)
     DAY_ORDER_QTY = FIXField('DayOrderQty', 424)
+    DEALING_CAPACITY = FIXField('DealingCapacity', 1048)
     DEF_BID_SIZE = FIXField('DefBidSize', 293)
     DEF_OFFER_SIZE = FIXField('DefOfferSize', 294)
+    DEFAULT_APPL_VER_ID = FIXField('DefaultApplVerID', 1137)
     DELETE_REASON = FIXField('DeleteReason', 285)
     DELIVER_TO_COMP_ID = FIXField('DeliverToCompID', 128)
     DELIVER_TO_LOCATION_ID = FIXField('DeliverToLocationID', 145)
@@ -196,6 +212,9 @@ class FIX44Field(Enum):
     DELIVERY_TYPE = FIXField('DeliveryType', 919)
     DESIGNATION = FIXField('Designation', 494)
     DESK_ID = FIXField('DeskID', 284)
+    DESK_ORDER_HANDLING_INST = FIXField('DeskOrderHandlingInst', 1035)
+    DESK_TYPE = FIXField('DeskType', 1033)
+    DESK_TYPE_SOURCE = FIXField('DeskTypeSource', 1034)
     DISCRETION_INST = FIXField('DiscretionInst', 388)
     DISCRETION_LIMIT_TYPE = FIXField('DiscretionLimitType', 843)
     DISCRETION_MOVE_TYPE = FIXField('DiscretionMoveType', 841)
@@ -204,6 +223,12 @@ class FIX44Field(Enum):
     DISCRETION_PRICE = FIXField('DiscretionPrice', 845)
     DISCRETION_ROUND_DIRECTION = FIXField('DiscretionRoundDirection', 844)
     DISCRETION_SCOPE = FIXField('DiscretionScope', 846)
+    DISPLAY_HIGH_QTY = FIXField('DisplayHighQty', 1086)
+    DISPLAY_LOW_QTY = FIXField('DisplayLowQty', 1085)
+    DISPLAY_METHOD = FIXField('DisplayMethod', 1084)
+    DISPLAY_MIN_INCR = FIXField('DisplayMinIncr', 1087)
+    DISPLAY_QTY = FIXField('DisplayQty', 1138)
+    DISPLAY_WHEN = FIXField('DisplayWhen', 1083)
     DISTRIB_PAYMENT_METHOD = FIXField('DistribPaymentMethod', 477)
     DISTRIB_PERCENTAGE = FIXField('DistribPercentage', 512)
     DLVY_INST_TYPE = FIXField('DlvyInstType', 787)
@@ -247,8 +272,11 @@ class FIX44Field(Enum):
     EVENT_TYPE = FIXField('EventType', 865)
     EX_DATE = FIXField('ExDate', 230)
     EX_DESTINATION = FIXField('ExDestination', 100)
+    EX_DESTINATION_ID_SOURCE = FIXField('ExDestinationIDSource', 1133)
     EXCHANGE_FOR_PHYSICAL = FIXField('ExchangeForPhysical', 411)
     EXCHANGE_RULE = FIXField('ExchangeRule', 825)
+    EXCHANGE_SPECIAL_INSTRUCTIONS = FIXField('ExchangeSpecialInstructions', 1139)
+    EXEC_ACK_STATUS = FIXField('ExecAckStatus', 1036)
     EXEC_ID = FIXField('ExecID', 17)
     EXEC_INST = FIXField('ExecInst', 18)
     EXEC_PRICE_ADJUSTMENT = FIXField('ExecPriceAdjustment', 485)
@@ -258,12 +286,16 @@ class FIX44Field(Enum):
     EXEC_TYPE = FIXField('ExecType', 150)
     EXEC_VALUATION_POINT = FIXField('ExecValuationPoint', 515)
     EXERCISE_METHOD = FIXField('ExerciseMethod', 747)
+    EXP_QTY = FIXField('ExpQty', 983)
+    EXP_TYPE = FIXField('ExpType', 982)
     EXPIRATION_CYCLE = FIXField('ExpirationCycle', 827)
     EXPIRE_DATE = FIXField('ExpireDate', 432)
     EXPIRE_TIME = FIXField('ExpireTime', 126)
     FACTOR = FIXField('Factor', 228)
     FAIR_VALUE = FIXField('FairValue', 406)
     FINANCIAL_STATUS = FIXField('FinancialStatus', 291)
+    FIRM_TRADE_ID = FIXField('FirmTradeID', 1041)
+    FIRST_PX = FIXField('FirstPx', 1025)
     FOREX_REQ = FIXField('ForexReq', 121)
     FUND_RENEW_WAIV = FIXField('FundRenewWaiv', 497)
     GT_BOOKING_INST = FIXField('GTBookingInst', 427)
@@ -277,6 +309,7 @@ class FIX44Field(Enum):
     HOP_COMP_ID = FIXField('HopCompID', 628)
     HOP_REF_ID = FIXField('HopRefID', 630)
     HOP_SENDING_TIME = FIXField('HopSendingTime', 629)
+    HOST_CROSS_ID = FIXField('HostCrossID', 961)
     IOIID = FIXField('IOIID', 23)
     IOI_NATURAL_FLAG = FIXField('IOINaturalFlag', 130)
     IOI_QLTY_IND = FIXField('IOIQltyInd', 25)
@@ -288,9 +321,17 @@ class FIX44Field(Enum):
     INC_TAX_IND = FIXField('IncTaxInd', 416)
     INDIVIDUAL_ALLOC_ID = FIXField('IndividualAllocID', 467)
     INDIVIDUAL_ALLOC_REJ_CODE = FIXField('IndividualAllocRejCode', 776)
+    INDIVIDUAL_ALLOC_TYPE = FIXField('IndividualAllocType', 992)
+    INPUT_SOURCE = FIXField('InputSource', 979)
     INSTR_ATTRIB_TYPE = FIXField('InstrAttribType', 871)
     INSTR_ATTRIB_VALUE = FIXField('InstrAttribValue', 872)
     INSTR_REGISTRY = FIXField('InstrRegistry', 543)
+    INSTRMT_ASSIGNMENT_METHOD = FIXField('InstrmtAssignmentMethod', 1049)
+    INSTRUMENT_PARTY_ID = FIXField('InstrumentPartyID', 1019)
+    INSTRUMENT_PARTY_ID_SOURCE = FIXField('InstrumentPartyIDSource', 1050)
+    INSTRUMENT_PARTY_ROLE = FIXField('InstrumentPartyRole', 1051)
+    INSTRUMENT_PARTY_SUB_ID = FIXField('InstrumentPartySubID', 1053)
+    INSTRUMENT_PARTY_SUB_ID_TYPE = FIXField('InstrumentPartySubIDType', 1054)
     INTEREST_ACCRUAL_DATE = FIXField('InterestAccrualDate', 874)
     INTEREST_AT_MATURITY = FIXField('InterestAtMaturity', 738)
     INVESTOR_COUNTRY_OF_RESIDENCE = FIXField('InvestorCountryOfResidence', 475)
@@ -309,7 +350,9 @@ class FIX44Field(Enum):
     LAST_QTY = FIXField('LastQty', 32)
     LAST_RPT_REQUESTED = FIXField('LastRptRequested', 912)
     LAST_SPOT_RATE = FIXField('LastSpotRate', 194)
+    LAST_SWAP_POINTS = FIXField('LastSwapPoints', 1071)
     LAST_UPDATE_TIME = FIXField('LastUpdateTime', 779)
+    LATE_INDICATOR = FIXField('LateIndicator', 978)
     LEAVES_QTY = FIXField('LeavesQty', 151)
     LEG_ALLOC_ACCOUNT = FIXField('LegAllocAccount', 671)
     LEG_ALLOC_ACCT_ID_SOURCE = FIXField('LegAllocAcctIDSource', 674)
@@ -319,8 +362,10 @@ class FIX44Field(Enum):
     LEG_BENCHMARK_CURVE_POINT = FIXField('LegBenchmarkCurvePoint', 678)
     LEG_BENCHMARK_PRICE = FIXField('LegBenchmarkPrice', 679)
     LEG_BENCHMARK_PRICE_TYPE = FIXField('LegBenchmarkPriceType', 680)
+    LEG_BID_FORWARD_POINTS = FIXField('LegBidForwardPoints', 1067)
     LEG_BID_PX = FIXField('LegBidPx', 681)
     LEG_CFI_CODE = FIXField('LegCFICode', 608)
+    LEG_CALCULATED_CCY_LAST_QTY = FIXField('LegCalculatedCcyLastQty', 1074)
     LEG_CONTRACT_MULTIPLIER = FIXField('LegContractMultiplier', 614)
     LEG_CONTRACT_SETTL_MONTH = FIXField('LegContractSettlMonth', 955)
     LEG_COUNTRY_OF_ISSUE = FIXField('LegCountryOfIssue', 596)
@@ -331,18 +376,23 @@ class FIX44Field(Enum):
     LEG_CURRENCY = FIXField('LegCurrency', 556)
     LEG_DATED_DATE = FIXField('LegDatedDate', 739)
     LEG_FACTOR = FIXField('LegFactor', 253)
+    LEG_GROSS_TRADE_AMT = FIXField('LegGrossTradeAmt', 1075)
     LEG_IOI_QTY = FIXField('LegIOIQty', 682)
     LEG_INDIVIDUAL_ALLOC_ID = FIXField('LegIndividualAllocID', 672)
     LEG_INSTR_REGISTRY = FIXField('LegInstrRegistry', 599)
     LEG_INTEREST_ACCRUAL_DATE = FIXField('LegInterestAccrualDate', 956)
     LEG_ISSUE_DATE = FIXField('LegIssueDate', 249)
     LEG_ISSUER = FIXField('LegIssuer', 617)
+    LEG_LAST_FORWARD_POINTS = FIXField('LegLastForwardPoints', 1073)
     LEG_LAST_PX = FIXField('LegLastPx', 637)
     LEG_LOCALE_OF_ISSUE = FIXField('LegLocaleOfIssue', 598)
     LEG_MATURITY_DATE = FIXField('LegMaturityDate', 611)
     LEG_MATURITY_MONTH_YEAR = FIXField('LegMaturityMonthYear', 610)
+    LEG_OFFER_FORWARD_POINTS = FIXField('LegOfferForwardPoints', 1068)
     LEG_OFFER_PX = FIXField('LegOfferPx', 684)
     LEG_OPT_ATTRIBUTE = FIXField('LegOptAttribute', 613)
+    LEG_OPTION_RATIO = FIXField('LegOptionRatio', 1017)
+    LEG_ORDER_QTY = FIXField('LegOrderQty', 685)
     LEG_POOL = FIXField('LegPool', 740)
     LEG_POSITION_EFFECT = FIXField('LegPositionEffect', 564)
     LEG_PRICE = FIXField('LegPrice', 566)
@@ -353,6 +403,7 @@ class FIX44Field(Enum):
     LEG_REDEMPTION_DATE = FIXField('LegRedemptionDate', 254)
     LEG_REF_ID = FIXField('LegRefID', 654)
     LEG_REPO_COLLATERAL_SECURITY_TYPE = FIXField('LegRepoCollateralSecurityType', 250)
+    LEG_REPORT_ID = FIXField('LegReportID', 990)
     LEG_REPURCHASE_RATE = FIXField('LegRepurchaseRate', 252)
     LEG_REPURCHASE_TERM = FIXField('LegRepurchaseTerm', 251)
     LEG_SECURITY_ALT_ID = FIXField('LegSecurityAltID', 605)
@@ -375,6 +426,8 @@ class FIX44Field(Enum):
     LEG_SWAP_TYPE = FIXField('LegSwapType', 690)
     LEG_SYMBOL = FIXField('LegSymbol', 600)
     LEG_SYMBOL_SFX = FIXField('LegSymbolSfx', 601)
+    LEG_TIME_UNIT = FIXField('LegTimeUnit', 1001)
+    LEG_UNIT_OF_MEASURE = FIXField('LegUnitOfMeasure', 999)
     LEGAL_CONFIRM = FIXField('LegalConfirm', 650)
     LIQUIDITY_IND_TYPE = FIXField('LiquidityIndType', 409)
     LIQUIDITY_NUM_SECURITIES = FIXField('LiquidityNumSecurities', 441)
@@ -393,9 +446,12 @@ class FIX44Field(Enum):
     LOCATE_REQD = FIXField('LocateReqd', 114)
     LOCATION_ID = FIXField('LocationID', 283)
     LONG_QTY = FIXField('LongQty', 704)
+    LOT_TYPE = FIXField('LotType', 1093)
     LOW_PX = FIXField('LowPx', 333)
+    MD_BOOK_TYPE = FIXField('MDBookType', 1021)
     MD_ENTRY_BUYER = FIXField('MDEntryBuyer', 288)
     MD_ENTRY_DATE = FIXField('MDEntryDate', 272)
+    MD_ENTRY_FORWARD_POINTS = FIXField('MDEntryForwardPoints', 1027)
     MD_ENTRY_ID = FIXField('MDEntryID', 278)
     MD_ENTRY_ORIGINATOR = FIXField('MDEntryOriginator', 282)
     MD_ENTRY_POSITION_NO = FIXField('MDEntryPositionNo', 290)
@@ -403,16 +459,23 @@ class FIX44Field(Enum):
     MD_ENTRY_REF_ID = FIXField('MDEntryRefID', 280)
     MD_ENTRY_SELLER = FIXField('MDEntrySeller', 289)
     MD_ENTRY_SIZE = FIXField('MDEntrySize', 271)
+    MD_ENTRY_SPOT_RATE = FIXField('MDEntrySpotRate', 1026)
     MD_ENTRY_TIME = FIXField('MDEntryTime', 273)
     MD_ENTRY_TYPE = FIXField('MDEntryType', 269)
+    MD_FEED_TYPE = FIXField('MDFeedType', 1022)
     MD_IMPLICIT_DELETE = FIXField('MDImplicitDelete', 547)
     MD_MKT = FIXField('MDMkt', 275)
+    MD_ORIGIN_TYPE = FIXField('MDOriginType', 1024)
+    MD_PRICE_LEVEL = FIXField('MDPriceLevel', 1023)
+    MD_QUOTE_TYPE = FIXField('MDQuoteType', 1070)
+    MD_REPORT_ID = FIXField('MDReportID', 963)
     MD_REQ_ID = FIXField('MDReqID', 262)
     MD_REQ_REJ_REASON = FIXField('MDReqRejReason', 281)
     MD_UPDATE_ACTION = FIXField('MDUpdateAction', 279)
     MD_UPDATE_TYPE = FIXField('MDUpdateType', 265)
     MAILING_DTLS = FIXField('MailingDtls', 474)
     MAILING_INST = FIXField('MailingInst', 482)
+    MANUAL_ORDER_INDICATOR = FIXField('ManualOrderIndicator', 1028)
     MARGIN_EXCESS = FIXField('MarginExcess', 899)
     MARGIN_RATIO = FIXField('MarginRatio', 898)
     MARKET_DEPTH = FIXField('MarketDepth', 264)
@@ -421,19 +484,24 @@ class FIX44Field(Enum):
     MASS_CANCEL_RESPONSE = FIXField('MassCancelResponse', 531)
     MASS_STATUS_REQ_ID = FIXField('MassStatusReqID', 584)
     MASS_STATUS_REQ_TYPE = FIXField('MassStatusReqType', 585)
+    MATCH_INCREMENT = FIXField('MatchIncrement', 1089)
     MATCH_STATUS = FIXField('MatchStatus', 573)
     MATCH_TYPE = FIXField('MatchType', 574)
     MATURITY_DATE = FIXField('MaturityDate', 541)
     MATURITY_MONTH_YEAR = FIXField('MaturityMonthYear', 200)
     MATURITY_NET_MONEY = FIXField('MaturityNetMoney', 890)
+    MATURITY_TIME = FIXField('MaturityTime', 1079)
     MAX_FLOOR = FIXField('MaxFloor', 111)
     MAX_MESSAGE_SIZE = FIXField('MaxMessageSize', 383)
+    MAX_PRICE_LEVELS = FIXField('MaxPriceLevels', 1090)
     MAX_SHOW = FIXField('MaxShow', 210)
     MESSAGE_ENCODING = FIXField('MessageEncoding', 347)
+    MESSAGE_EVENT_SOURCE = FIXField('MessageEventSource', 1011)
     MID_PX = FIXField('MidPx', 631)
     MID_YIELD = FIXField('MidYield', 633)
     MIN_BID_SIZE = FIXField('MinBidSize', 647)
     MIN_OFFER_SIZE = FIXField('MinOfferSize', 648)
+    MIN_PRICE_INCREMENT = FIXField('MinPriceIncrement', 969)
     MIN_QTY = FIXField('MinQty', 110)
     MIN_TRADE_VOL = FIXField('MinTradeVol', 562)
     MISC_FEE_AMT = FIXField('MiscFeeAmt', 137)
@@ -448,6 +516,7 @@ class FIX44Field(Enum):
     MSG_TYPE = FIXField('MsgType', 35)
     MULTI_LEG_REPORTING_TYPE = FIXField('MultiLegReportingType', 442)
     MULTI_LEG_RPT_TYPE_REQ = FIXField('MultiLegRptTypeReq', 563)
+    NT_POSITION_LIMIT = FIXField('NTPositionLimit', 971)
     NESTED2_PARTY_ID = FIXField('Nested2PartyID', 757)
     NESTED2_PARTY_ID_SOURCE = FIXField('Nested2PartyIDSource', 758)
     NESTED2_PARTY_ROLE = FIXField('Nested2PartyRole', 759)
@@ -489,9 +558,12 @@ class FIX44Field(Enum):
     NO_DLVY_INST = FIXField('NoDlvyInst', 85)
     NO_EVENTS = FIXField('NoEvents', 864)
     NO_EXECS = FIXField('NoExecs', 124)
+    NO_EXPIRATION = FIXField('NoExpiration', 981)
     NO_HOPS = FIXField('NoHops', 627)
     NO_IOI_QUALIFIERS = FIXField('NoIOIQualifiers', 199)
     NO_INSTR_ATTRIB = FIXField('NoInstrAttrib', 870)
+    NO_INSTRUMENT_PARTIES = FIXField('NoInstrumentParties', 1018)
+    NO_INSTRUMENT_PARTY_SUB_I_DS = FIXField('NoInstrumentPartySubIDs', 1052)
     NO_LEG_ALLOCS = FIXField('NoLegAllocs', 670)
     NO_LEG_SECURITY_ALT_ID = FIXField('NoLegSecurityAltID', 604)
     NO_LEG_STIPULATIONS = FIXField('NoLegStipulations', 683)
@@ -517,6 +589,8 @@ class FIX44Field(Enum):
     NO_QUOTE_SETS = FIXField('NoQuoteSets', 296)
     NO_REGIST_DTLS = FIXField('NoRegistDtls', 473)
     NO_RELATED_SYM = FIXField('NoRelatedSym', 146)
+    NO_ROOT_PARTY_I_DS = FIXField('NoRootPartyIDs', 1116)
+    NO_ROOT_PARTY_SUB_I_DS = FIXField('NoRootPartySubIDs', 1120)
     NO_ROUTING_I_DS = FIXField('NoRoutingIDs', 215)
     NO_RPTS = FIXField('NoRpts', 82)
     NO_SECURITY_ALT_ID = FIXField('NoSecurityAltID', 454)
@@ -524,15 +598,20 @@ class FIX44Field(Enum):
     NO_SETTL_INST = FIXField('NoSettlInst', 778)
     NO_SETTL_PARTY_I_DS = FIXField('NoSettlPartyIDs', 781)
     NO_SETTL_PARTY_SUB_I_DS = FIXField('NoSettlPartySubIDs', 801)
+    NO_SIDE_TRD_REG_TS = FIXField('NoSideTrdRegTS', 1016)
     NO_SIDES = FIXField('NoSides', 552)
     NO_STIPULATIONS = FIXField('NoStipulations', 232)
+    NO_STRATEGY_PARAMETERS = FIXField('NoStrategyParameters', 957)
     NO_STRIKES = FIXField('NoStrikes', 428)
     NO_TRADES = FIXField('NoTrades', 897)
     NO_TRADING_SESSIONS = FIXField('NoTradingSessions', 386)
     NO_TRD_REG_TIMESTAMPS = FIXField('NoTrdRegTimestamps', 768)
+    NO_UNDERLYING_AMOUNTS = FIXField('NoUnderlyingAmounts', 984)
     NO_UNDERLYING_SECURITY_ALT_ID = FIXField('NoUnderlyingSecurityAltID', 457)
     NO_UNDERLYING_STIPS = FIXField('NoUnderlyingStips', 887)
     NO_UNDERLYINGS = FIXField('NoUnderlyings', 711)
+    NO_UNDLY_INSTRUMENT_PARTIES = FIXField('NoUndlyInstrumentParties', 1058)
+    NO_UNDLY_INSTRUMENT_PARTY_SUB_I_DS = FIXField('NoUndlyInstrumentPartySubIDs', 1062)
     NOTIFY_BROKER_OF_CREDIT = FIXField('NotifyBrokerOfCredit', 208)
     NUM_BIDDERS = FIXField('NumBidders', 417)
     NUM_DAYS_INTEREST = FIXField('NumDaysInterest', 157)
@@ -544,6 +623,7 @@ class FIX44Field(Enum):
     OFFER_PX = FIXField('OfferPx', 133)
     OFFER_SIZE = FIXField('OfferSize', 135)
     OFFER_SPOT_RATE = FIXField('OfferSpotRate', 190)
+    OFFER_SWAP_POINTS = FIXField('OfferSwapPoints', 1066)
     OFFER_YIELD = FIXField('OfferYield', 634)
     ON_BEHALF_OF_COMP_ID = FIXField('OnBehalfOfCompID', 115)
     ON_BEHALF_OF_LOCATION_ID = FIXField('OnBehalfOfLocationID', 144)
@@ -559,6 +639,8 @@ class FIX44Field(Enum):
     ORDER_BOOKING_QTY = FIXField('OrderBookingQty', 800)
     ORDER_CAPACITY = FIXField('OrderCapacity', 528)
     ORDER_CAPACITY_QTY = FIXField('OrderCapacityQty', 863)
+    ORDER_CATEGORY = FIXField('OrderCategory', 1115)
+    ORDER_HANDLING_INST_SOURCE = FIXField('OrderHandlingInstSource', 1032)
     ORDER_ID = FIXField('OrderID', 37)
     ORDER_INPUT_DEVICE = FIXField('OrderInputDevice', 821)
     ORDER_PERCENT = FIXField('OrderPercent', 516)
@@ -569,8 +651,12 @@ class FIX44Field(Enum):
     ORIG_CROSS_ID = FIXField('OrigCrossID', 551)
     ORIG_ORD_MOD_TIME = FIXField('OrigOrdModTime', 586)
     ORIG_POS_REQ_REF_ID = FIXField('OrigPosReqRefID', 713)
+    ORIG_SECONDARY_TRADE_ID = FIXField('OrigSecondaryTradeID', 1127)
     ORIG_SENDING_TIME = FIXField('OrigSendingTime', 122)
     ORIG_TIME = FIXField('OrigTime', 42)
+    ORIG_TRADE_DATE = FIXField('OrigTradeDate', 1125)
+    ORIG_TRADE_HANDLING_INSTR = FIXField('OrigTradeHandlingInstr', 1124)
+    ORIG_TRADE_ID = FIXField('OrigTradeID', 1126)
     OUT_MAIN_CNTRY_U_INDEX = FIXField('OutMainCntryUIndex', 412)
     OUTSIDE_INDEX_PCT = FIXField('OutsideIndexPct', 407)
     OWNER_TYPE = FIXField('OwnerType', 522)
@@ -591,9 +677,15 @@ class FIX44Field(Enum):
     PEG_MOVE_TYPE = FIXField('PegMoveType', 835)
     PEG_OFFSET_TYPE = FIXField('PegOffsetType', 836)
     PEG_OFFSET_VALUE = FIXField('PegOffsetValue', 211)
+    PEG_PRICE_TYPE = FIXField('PegPriceType', 1094)
     PEG_ROUND_DIRECTION = FIXField('PegRoundDirection', 838)
     PEG_SCOPE = FIXField('PegScope', 840)
+    PEG_SECURITY_DESC = FIXField('PegSecurityDesc', 1099)
+    PEG_SECURITY_ID = FIXField('PegSecurityID', 1097)
+    PEG_SECURITY_ID_SOURCE = FIXField('PegSecurityIDSource', 1096)
+    PEG_SYMBOL = FIXField('PegSymbol', 1098)
     PEGGED_PRICE = FIXField('PeggedPrice', 839)
+    PEGGED_REF_PRICE = FIXField('PeggedRefPrice', 1095)
     POOL = FIXField('Pool', 691)
     POS_AMT = FIXField('PosAmt', 708)
     POS_AMT_TYPE = FIXField('PosAmtType', 707)
@@ -609,9 +701,12 @@ class FIX44Field(Enum):
     POS_REQ_TYPE = FIXField('PosReqType', 724)
     POS_TRANS_TYPE = FIXField('PosTransType', 709)
     POS_TYPE = FIXField('PosType', 703)
+    POSITION_CURRENCY = FIXField('PositionCurrency', 1055)
     POSITION_EFFECT = FIXField('PositionEffect', 77)
+    POSITION_LIMIT = FIXField('PositionLimit', 970)
     POSS_DUP_FLAG = FIXField('PossDupFlag', 43)
     POSS_RESEND = FIXField('PossResend', 97)
+    PRE_TRADE_ANONYMITY = FIXField('PreTradeAnonymity', 1091)
     PREALLOC_METHOD = FIXField('PreallocMethod', 591)
     PREV_CLOSE_PX = FIXField('PrevClosePx', 140)
     PREVIOUSLY_REPORTED = FIXField('PreviouslyReported', 570)
@@ -619,6 +714,7 @@ class FIX44Field(Enum):
     PRICE2 = FIXField('Price2', 640)
     PRICE_DELTA = FIXField('PriceDelta', 811)
     PRICE_IMPROVEMENT = FIXField('PriceImprovement', 639)
+    PRICE_PROTECTION_SCOPE = FIXField('PriceProtectionScope', 1092)
     PRICE_TYPE = FIXField('PriceType', 423)
     PRIOR_SETTL_PRICE = FIXField('PriorSettlPrice', 734)
     PRIOR_SPREAD_INDICATOR = FIXField('PriorSpreadIndicator', 720)
@@ -631,6 +727,7 @@ class FIX44Field(Enum):
     PUT_OR_CALL = FIXField('PutOrCall', 201)
     QTY_TYPE = FIXField('QtyType', 854)
     QUANTITY = FIXField('Quantity', 53)
+    QUANTITY_DATE = FIXField('QuantityDate', 976)
     QUOTE_CANCEL_TYPE = FIXField('QuoteCancelType', 298)
     QUOTE_CONDITION = FIXField('QuoteCondition', 276)
     QUOTE_ENTRY_ID = FIXField('QuoteEntryID', 299)
@@ -653,13 +750,19 @@ class FIX44Field(Enum):
     RFQ_REQ_ID = FIXField('RFQReqID', 644)
     RAW_DATA = FIXField('RawData', 96)
     RAW_DATA_LENGTH = FIXField('RawDataLength', 95)
+    RECEIVED_DEPT_ID = FIXField('ReceivedDeptID', 1030)
     REDEMPTION_DATE = FIXField('RedemptionDate', 240)
     REF_ALLOC_ID = FIXField('RefAllocID', 72)
+    REF_APPL_VER_ID = FIXField('RefApplVerID', 1130)
     REF_COMP_ID = FIXField('RefCompID', 930)
+    REF_CSTM_APPL_VER_ID = FIXField('RefCstmApplVerID', 1131)
     REF_MSG_TYPE = FIXField('RefMsgType', 372)
+    REF_ORDER_ID = FIXField('RefOrderID', 1080)
+    REF_ORDER_ID_SOURCE = FIXField('RefOrderIDSource', 1081)
     REF_SEQ_NUM = FIXField('RefSeqNum', 45)
     REF_SUB_ID = FIXField('RefSubID', 931)
     REF_TAG_ID = FIXField('RefTagID', 371)
+    REFRESH_QTY = FIXField('RefreshQty', 1088)
     REGIST_ACCT_TYPE = FIXField('RegistAcctType', 493)
     REGIST_DTLS = FIXField('RegistDtls', 509)
     REGIST_EMAIL = FIXField('RegistEmail', 511)
@@ -672,23 +775,35 @@ class FIX44Field(Enum):
     REPO_COLLATERAL_SECURITY_TYPE = FIXField('RepoCollateralSecurityType', 239)
     REPORT_TO_EXCH = FIXField('ReportToExch', 113)
     REPORTED_PX = FIXField('ReportedPx', 861)
+    REPORTED_PX_DIFF = FIXField('ReportedPxDiff', 1134)
     REPURCHASE_RATE = FIXField('RepurchaseRate', 227)
     REPURCHASE_TERM = FIXField('RepurchaseTerm', 226)
     RESET_SEQ_NUM_FLAG = FIXField('ResetSeqNumFlag', 141)
     RESPONSE_DESTINATION = FIXField('ResponseDestination', 726)
     RESPONSE_TRANSPORT_TYPE = FIXField('ResponseTransportType', 725)
     REVERSAL_INDICATOR = FIXField('ReversalIndicator', 700)
+    RND_PX = FIXField('RndPx', 991)
+    ROOT_PARTY_ID = FIXField('RootPartyID', 1117)
+    ROOT_PARTY_ID_SOURCE = FIXField('RootPartyIDSource', 1118)
+    ROOT_PARTY_ROLE = FIXField('RootPartyRole', 1119)
+    ROOT_PARTY_SUB_ID = FIXField('RootPartySubID', 1121)
+    ROOT_PARTY_SUB_ID_TYPE = FIXField('RootPartySubIDType', 1122)
     ROUND_LOT = FIXField('RoundLot', 561)
     ROUNDING_DIRECTION = FIXField('RoundingDirection', 468)
     ROUNDING_MODULUS = FIXField('RoundingModulus', 469)
     ROUTING_ID = FIXField('RoutingID', 217)
     ROUTING_TYPE = FIXField('RoutingType', 216)
     RPT_SEQ = FIXField('RptSeq', 83)
+    RPT_SYS = FIXField('RptSys', 1135)
     SCOPE = FIXField('Scope', 546)
     SECONDARY_ALLOC_ID = FIXField('SecondaryAllocID', 793)
     SECONDARY_CL_ORD_ID = FIXField('SecondaryClOrdID', 526)
+    SECONDARY_DISPLAY_QTY = FIXField('SecondaryDisplayQty', 1082)
     SECONDARY_EXEC_ID = FIXField('SecondaryExecID', 527)
+    SECONDARY_FIRM_TRADE_ID = FIXField('SecondaryFirmTradeID', 1042)
+    SECONDARY_INDIVIDUAL_ALLOC_ID = FIXField('SecondaryIndividualAllocID', 989)
     SECONDARY_ORDER_ID = FIXField('SecondaryOrderID', 198)
+    SECONDARY_TRADE_ID = FIXField('SecondaryTradeID', 1040)
     SECONDARY_TRADE_REPORT_ID = FIXField('SecondaryTradeReportID', 818)
     SECONDARY_TRADE_REPORT_REF_ID = FIXField('SecondaryTradeReportRefID', 881)
     SECONDARY_TRD_TYPE = FIXField('SecondaryTrdType', 855)
@@ -701,15 +816,18 @@ class FIX44Field(Enum):
     SECURITY_ID = FIXField('SecurityID', 48)
     SECURITY_ID_SOURCE = FIXField('SecurityIDSource', 22)
     SECURITY_LIST_REQUEST_TYPE = FIXField('SecurityListRequestType', 559)
+    SECURITY_REPORT_ID = FIXField('SecurityReportID', 964)
     SECURITY_REQ_ID = FIXField('SecurityReqID', 320)
     SECURITY_REQUEST_RESULT = FIXField('SecurityRequestResult', 560)
     SECURITY_REQUEST_TYPE = FIXField('SecurityRequestType', 321)
     SECURITY_RESPONSE_ID = FIXField('SecurityResponseID', 322)
     SECURITY_RESPONSE_TYPE = FIXField('SecurityResponseType', 323)
+    SECURITY_STATUS = FIXField('SecurityStatus', 965)
     SECURITY_STATUS_REQ_ID = FIXField('SecurityStatusReqID', 324)
     SECURITY_SUB_TYPE = FIXField('SecuritySubType', 762)
     SECURITY_TRADING_STATUS = FIXField('SecurityTradingStatus', 326)
     SECURITY_TYPE = FIXField('SecurityType', 167)
+    SECURITY_UPDATE_ACTION = FIXField('SecurityUpdateAction', 980)
     SELL_VOLUME = FIXField('SellVolume', 331)
     SELLER_DAYS = FIXField('SellerDays', 287)
     SENDER_COMP_ID = FIXField('SenderCompID', 49)
@@ -744,12 +862,23 @@ class FIX44Field(Enum):
     SETTL_SESS_ID = FIXField('SettlSessID', 716)
     SETTL_SESS_SUB_ID = FIXField('SettlSessSubID', 717)
     SETTL_TYPE = FIXField('SettlType', 63)
+    SETTLE_ON_OPEN_FLAG = FIXField('SettleOnOpenFlag', 966)
     SHARED_COMMISSION = FIXField('SharedCommission', 858)
     SHORT_QTY = FIXField('ShortQty', 705)
     SHORT_SALE_REASON = FIXField('ShortSaleReason', 853)
     SIDE = FIXField('Side', 54)
     SIDE_COMPLIANCE_ID = FIXField('SideComplianceID', 659)
+    SIDE_FILL_STATION_CD = FIXField('SideFillStationCd', 1006)
+    SIDE_GROSS_TRADE_AMT = FIXField('SideGrossTradeAmt', 1072)
     SIDE_MULTI_LEG_REPORTING_TYPE = FIXField('SideMultiLegReportingType', 752)
+    SIDE_QTY = FIXField('SideQty', 1009)
+    SIDE_REASON_CD = FIXField('SideReasonCd', 1007)
+    SIDE_TIME_IN_FORCE = FIXField('SideTimeInForce', 962)
+    SIDE_TRADE_REPORT_ID = FIXField('SideTradeReportID', 1005)
+    SIDE_TRD_REG_TIMESTAMP = FIXField('SideTrdRegTimestamp', 1012)
+    SIDE_TRD_REG_TIMESTAMP_SRC = FIXField('SideTrdRegTimestampSrc', 1014)
+    SIDE_TRD_REG_TIMESTAMP_TYPE = FIXField('SideTrdRegTimestampType', 1013)
+    SIDE_TRD_SUB_TYP = FIXField('SideTrdSubTyp', 1008)
     SIDE_VALUE1 = FIXField('SideValue1', 396)
     SIDE_VALUE2 = FIXField('SideValue2', 397)
     SIDE_VALUE_IND = FIXField('SideValueInd', 401)
@@ -768,13 +897,20 @@ class FIX44Field(Enum):
     STIPULATION_TYPE = FIXField('StipulationType', 233)
     STIPULATION_VALUE = FIXField('StipulationValue', 234)
     STOP_PX = FIXField('StopPx', 99)
+    STRATEGY_PARAMETER_NAME = FIXField('StrategyParameterName', 958)
+    STRATEGY_PARAMETER_TYPE = FIXField('StrategyParameterType', 959)
+    STRATEGY_PARAMETER_VALUE = FIXField('StrategyParameterValue', 960)
     STRIKE_CURRENCY = FIXField('StrikeCurrency', 947)
+    STRIKE_MULTIPLIER = FIXField('StrikeMultiplier', 967)
     STRIKE_PRICE = FIXField('StrikePrice', 202)
     STRIKE_TIME = FIXField('StrikeTime', 443)
+    STRIKE_VALUE = FIXField('StrikeValue', 968)
     SUBJECT = FIXField('Subject', 147)
     SUBSCRIPTION_REQUEST_TYPE = FIXField('SubscriptionRequestType', 263)
+    SWAP_POINTS = FIXField('SwapPoints', 1069)
     SYMBOL = FIXField('Symbol', 55)
     SYMBOL_SFX = FIXField('SymbolSfx', 65)
+    TZ_TRANSACT_TIME = FIXField('TZTransactTime', 1132)
     TARGET_COMP_ID = FIXField('TargetCompID', 56)
     TARGET_LOCATION_ID = FIXField('TargetLocationID', 143)
     TARGET_STRATEGY = FIXField('TargetStrategy', 847)
@@ -788,8 +924,10 @@ class FIX44Field(Enum):
     TEXT = FIXField('Text', 58)
     THRESHOLD_AMOUNT = FIXField('ThresholdAmount', 834)
     TICK_DIRECTION = FIXField('TickDirection', 274)
+    TIER_CODE = FIXField('TierCode', 994)
     TIME_BRACKET = FIXField('TimeBracket', 943)
     TIME_IN_FORCE = FIXField('TimeInForce', 59)
+    TIME_UNIT = FIXField('TimeUnit', 997)
     TOT_NO_ALLOCS = FIXField('TotNoAllocs', 892)
     TOT_NO_ORDERS = FIXField('TotNoOrders', 68)
     TOT_NO_QUOTE_ENTRIES = FIXField('TotNoQuoteEntries', 304)
@@ -818,6 +956,8 @@ class FIX44Field(Enum):
     TRADE_ALLOC_INDICATOR = FIXField('TradeAllocIndicator', 826)
     TRADE_CONDITION = FIXField('TradeCondition', 277)
     TRADE_DATE = FIXField('TradeDate', 75)
+    TRADE_HANDLING_INSTR = FIXField('TradeHandlingInstr', 1123)
+    TRADE_ID = FIXField('TradeID', 1003)
     TRADE_INPUT_DEVICE = FIXField('TradeInputDevice', 579)
     TRADE_INPUT_SOURCE = FIXField('TradeInputSource', 578)
     TRADE_LEG_REF_ID = FIXField('TradeLegRefID', 824)
@@ -832,6 +972,7 @@ class FIX44Field(Enum):
     TRADE_REQUEST_RESULT = FIXField('TradeRequestResult', 749)
     TRADE_REQUEST_STATUS = FIXField('TradeRequestStatus', 750)
     TRADE_REQUEST_TYPE = FIXField('TradeRequestType', 569)
+    TRADE_VOLUME = FIXField('TradeVolume', 1020)
     TRADED_FLAT_SWITCH = FIXField('TradedFlatSwitch', 258)
     TRADING_SESSION_ID = FIXField('TradingSessionID', 336)
     TRADING_SESSION_SUB_ID = FIXField('TradingSessionSubID', 625)
@@ -845,10 +986,31 @@ class FIX44Field(Enum):
     TRD_RPT_STATUS = FIXField('TrdRptStatus', 939)
     TRD_SUB_TYPE = FIXField('TrdSubType', 829)
     TRD_TYPE = FIXField('TrdType', 828)
+    TRIGGER_ACTION = FIXField('TriggerAction', 1101)
+    TRIGGER_NEW_PRICE = FIXField('TriggerNewPrice', 1110)
+    TRIGGER_NEW_QTY = FIXField('TriggerNewQty', 1112)
+    TRIGGER_ORDER_TYPE = FIXField('TriggerOrderType', 1111)
+    TRIGGER_PRICE = FIXField('TriggerPrice', 1102)
+    TRIGGER_PRICE_DIRECTION = FIXField('TriggerPriceDirection', 1109)
+    TRIGGER_PRICE_TYPE = FIXField('TriggerPriceType', 1107)
+    TRIGGER_PRICE_TYPE_SCOPE = FIXField('TriggerPriceTypeScope', 1108)
+    TRIGGER_SECURITY_DESC = FIXField('TriggerSecurityDesc', 1106)
+    TRIGGER_SECURITY_ID = FIXField('TriggerSecurityID', 1104)
+    TRIGGER_SECURITY_ID_SOURCE = FIXField('TriggerSecurityIDSource', 1105)
+    TRIGGER_SYMBOL = FIXField('TriggerSymbol', 1103)
+    TRIGGER_TRADING_SESSION_ID = FIXField('TriggerTradingSessionID', 1113)
+    TRIGGER_TRADING_SESSION_SUB_ID = FIXField('TriggerTradingSessionSubID', 1114)
+    TRIGGER_TYPE = FIXField('TriggerType', 1100)
     URL_LINK = FIXField('URLLink', 149)
+    UNDERLYING_ADJUSTED_QUANTITY = FIXField('UnderlyingAdjustedQuantity', 1044)
+    UNDERLYING_ALLOCATION_PERCENT = FIXField('UnderlyingAllocationPercent', 972)
     UNDERLYING_CFI_CODE = FIXField('UnderlyingCFICode', 463)
     UNDERLYING_CP_PROGRAM = FIXField('UnderlyingCPProgram', 877)
     UNDERLYING_CP_REG_TYPE = FIXField('UnderlyingCPRegType', 878)
+    UNDERLYING_CAP_VALUE = FIXField('UnderlyingCapValue', 1038)
+    UNDERLYING_CASH_AMOUNT = FIXField('UnderlyingCashAmount', 973)
+    UNDERLYING_CASH_TYPE = FIXField('UnderlyingCashType', 974)
+    UNDERLYING_COLLECT_AMOUNT = FIXField('UnderlyingCollectAmount', 986)
     UNDERLYING_CONTRACT_MULTIPLIER = FIXField('UnderlyingContractMultiplier', 436)
     UNDERLYING_COUNTRY_OF_ISSUE = FIXField('UnderlyingCountryOfIssue', 592)
     UNDERLYING_COUPON_PAYMENT_DATE = FIXField('UnderlyingCouponPaymentDate', 241)
@@ -856,9 +1018,12 @@ class FIX44Field(Enum):
     UNDERLYING_CREDIT_RATING = FIXField('UnderlyingCreditRating', 256)
     UNDERLYING_CURRENCY = FIXField('UnderlyingCurrency', 318)
     UNDERLYING_CURRENT_VALUE = FIXField('UnderlyingCurrentValue', 885)
+    UNDERLYING_DELIVERY_AMOUNT = FIXField('UnderlyingDeliveryAmount', 1037)
     UNDERLYING_DIRTY_PRICE = FIXField('UnderlyingDirtyPrice', 882)
     UNDERLYING_END_PRICE = FIXField('UnderlyingEndPrice', 883)
     UNDERLYING_END_VALUE = FIXField('UnderlyingEndValue', 886)
+    UNDERLYING_FX_RATE = FIXField('UnderlyingFXRate', 1045)
+    UNDERLYING_FX_RATE_CALC = FIXField('UnderlyingFXRateCalc', 1046)
     UNDERLYING_FACTOR = FIXField('UnderlyingFactor', 246)
     UNDERLYING_INSTR_REGISTRY = FIXField('UnderlyingInstrRegistry', 595)
     UNDERLYING_ISSUE_DATE = FIXField('UnderlyingIssueDate', 242)
@@ -869,6 +1034,7 @@ class FIX44Field(Enum):
     UNDERLYING_MATURITY_DATE = FIXField('UnderlyingMaturityDate', 542)
     UNDERLYING_MATURITY_MONTH_YEAR = FIXField('UnderlyingMaturityMonthYear', 313)
     UNDERLYING_OPT_ATTRIBUTE = FIXField('UnderlyingOptAttribute', 317)
+    UNDERLYING_PAY_AMOUNT = FIXField('UnderlyingPayAmount', 985)
     UNDERLYING_PRODUCT = FIXField('UnderlyingProduct', 462)
     UNDERLYING_PUT_OR_CALL = FIXField('UnderlyingPutOrCall', 315)
     UNDERLYING_PX = FIXField('UnderlyingPx', 810)
@@ -885,8 +1051,12 @@ class FIX44Field(Enum):
     UNDERLYING_SECURITY_ID_SOURCE = FIXField('UnderlyingSecurityIDSource', 305)
     UNDERLYING_SECURITY_SUB_TYPE = FIXField('UnderlyingSecuritySubType', 763)
     UNDERLYING_SECURITY_TYPE = FIXField('UnderlyingSecurityType', 310)
+    UNDERLYING_SETTL_METHOD = FIXField('UnderlyingSettlMethod', 1039)
     UNDERLYING_SETTL_PRICE = FIXField('UnderlyingSettlPrice', 732)
     UNDERLYING_SETTL_PRICE_TYPE = FIXField('UnderlyingSettlPriceType', 733)
+    UNDERLYING_SETTLEMENT_DATE = FIXField('UnderlyingSettlementDate', 987)
+    UNDERLYING_SETTLEMENT_STATUS = FIXField('UnderlyingSettlementStatus', 988)
+    UNDERLYING_SETTLEMENT_TYPE = FIXField('UnderlyingSettlementType', 975)
     UNDERLYING_START_VALUE = FIXField('UnderlyingStartValue', 884)
     UNDERLYING_STATE_OR_PROVINCE_OF_ISSUE = FIXField('UnderlyingStateOrProvinceOfIssue', 593)
     UNDERLYING_STIP_TYPE = FIXField('UnderlyingStipType', 888)
@@ -895,8 +1065,16 @@ class FIX44Field(Enum):
     UNDERLYING_STRIKE_PRICE = FIXField('UnderlyingStrikePrice', 316)
     UNDERLYING_SYMBOL = FIXField('UnderlyingSymbol', 311)
     UNDERLYING_SYMBOL_SFX = FIXField('UnderlyingSymbolSfx', 312)
+    UNDERLYING_TIME_UNIT = FIXField('UnderlyingTimeUnit', 1000)
     UNDERLYING_TRADING_SESSION_ID = FIXField('UnderlyingTradingSessionID', 822)
     UNDERLYING_TRADING_SESSION_SUB_ID = FIXField('UnderlyingTradingSessionSubID', 823)
+    UNDERLYING_UNIT_OF_MEASURE = FIXField('UnderlyingUnitOfMeasure', 998)
+    UNDLY_INSTRUMENT_PARTY_ID = FIXField('UndlyInstrumentPartyID', 1059)
+    UNDLY_INSTRUMENT_PARTY_ID_SOURCE = FIXField('UndlyInstrumentPartyIDSource', 1060)
+    UNDLY_INSTRUMENT_PARTY_ROLE = FIXField('UndlyInstrumentPartyRole', 1061)
+    UNDLY_INSTRUMENT_PARTY_SUB_ID = FIXField('UndlyInstrumentPartySubID', 1063)
+    UNDLY_INSTRUMENT_PARTY_SUB_ID_TYPE = FIXField('UndlyInstrumentPartySubIDType', 1064)
+    UNIT_OF_MEASURE = FIXField('UnitOfMeasure', 996)
     UNSOLICITED_INDICATOR = FIXField('UnsolicitedIndicator', 325)
     URGENCY = FIXField('Urgency', 61)
     USER_REQUEST_ID = FIXField('UserRequestID', 923)
@@ -919,13 +1097,13 @@ class FIX44Field(Enum):
 
 
 class AccountType(Enum):
-    ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = '1'
+    ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS = '1'
     ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = '2'
     HOUSE_TRADER = '3'
     FLOOR_TRADER = '4'
     ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = '6'
     ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = '7'
-    JOINT_BACKOFFICE_ACCOUNT = '8'
+    JOINT_BACK_OFFICE_ACCOUNT = '8'
 
 
 class AcctIDSource(Enum):
@@ -953,8 +1131,8 @@ class AdjustmentType(Enum):
 class AdvSide(Enum):
     BUY = 'B'
     SELL = 'S'
-    CROSS = 'X'
     TRADE = 'T'
+    CROSS = 'X'
 
 
 class AdvTransType(Enum):
@@ -974,14 +1152,19 @@ class AggregatedBook(Enum):
     NO = 'N'
 
 
+class AggressorIndicator(Enum):
+    YES = 'Y'
+    NO = 'N'
+
+
 class AllocAccountType(Enum):
-    ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = '1'
+    ACCOUNT_IS_CARRIED_PN_CUSTOMER_SIDE_OF_BOOKS = '1'
     ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = '2'
     HOUSE_TRADER = '3'
     FLOOR_TRADER = '4'
     ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = '6'
     ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = '7'
-    JOINT_BACKOFFICE_ACCOUNT = '8'
+    JOINT_BACK_OFFICE_ACCOUNT = '8'
 
 
 class AllocCancReplaceReason(Enum):
@@ -1006,8 +1189,14 @@ class AllocIntermedReqType(Enum):
 
 
 class AllocLinkType(Enum):
-    F_X_NETTING = '0'
-    F_X_SWAP = '1'
+    FX_NETTING = '0'
+    FX_SWAP = '1'
+
+
+class AllocMethod(Enum):
+    AUTOMATIC = '1'
+    GUARANTOR = '2'
+    MANUAL = '3'
 
 
 class AllocNoOrdersType(Enum):
@@ -1015,10 +1204,17 @@ class AllocNoOrdersType(Enum):
     EXPLICIT_LIST_PROVIDED = '1'
 
 
+class AllocPositionEffect(Enum):
+    OPEN = 'O'
+    CLOSE = 'C'
+    ROLLED = 'R'
+    FIFO = 'F'
+
+
 class AllocRejCode(Enum):
     UNKNOWN_ACCOUNT = '0'
     INCORRECT_QUANTITY = '1'
-    INCORRECT_AVERAGE_PRICE = '2'
+    INCORRECT_AVERAGEG_PRICE = '2'
     UNKNOWN_EXECUTING_BROKER_MNEMONIC = '3'
     COMMISSION_DIFFERENCE = '4'
     UNKNOWN_ORDERID = '5'
@@ -1027,16 +1223,22 @@ class AllocRejCode(Enum):
     INCORRECT_ALLOCATED_QUANTITY = '8'
     CALCULATION_DIFFERENCE = '9'
     UNKNOWN_OR_STALE_EXECID = '10'
-    MISMATCHED_DATA_VALUE = '11'
+    MISMATCHED_DATA = '11'
     UNKNOWN_CLORDID = '12'
     WAREHOUSE_REQUEST_REJECTED = '13'
 
 
 class AllocReportType(Enum):
+    PRELIMINARY_REQUEST_TO_INTERMEDIARY = '2'
     SELLSIDE_CALCULATED_USING_PRELIMINARY = '3'
     SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = '4'
     WAREHOUSE_RECAP = '5'
     REQUEST_TO_INTERMEDIARY = '8'
+    ACCEPT = '9'
+    REJECT = '10'
+    ACCEPT_PENDING = '11'
+    COMPLETE = '12'
+    REVERSE_PENDING = '14'
 
 
 class AllocSettlInstType(Enum):
@@ -1054,20 +1256,35 @@ class AllocStatus(Enum):
     RECEIVED = '3'
     INCOMPLETE = '4'
     REJECTED_BY_INTERMEDIARY = '5'
+    ALLOCATION_PENDING = '6'
+    REVERSED = '7'
 
 
 class AllocTransType(Enum):
     NEW = '0'
     REPLACE = '1'
     CANCEL = '2'
+    PRELIMINARY = '3'
+    CALCULATED = '4'
+    CALCULATED_WITHOUT_PRELIMINARY = '5'
+    REVERSAL = '6'
 
 
 class AllocType(Enum):
     CALCULATED = '1'
     PRELIMINARY = '2'
+    SELLSIDE_CALCULATED_USING_PRELIMINARY = '3'
+    SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = '4'
     READY_TO_BOOK = '5'
+    BUYSIDE_READY_TO_BOOK = '6'
     WAREHOUSE_INSTRUCTION = '7'
     REQUEST_TO_INTERMEDIARY = '8'
+    ACCEPT = '9'
+    REJECT = '10'
+    ACCEPT_PENDING = '11'
+    INCOMPLETE_GROUP = '12'
+    COMPLETE_GROUP = '13'
+    REVERSAL_PENDING = '14'
 
 
 class ApplQueueAction(Enum):
@@ -1084,15 +1301,31 @@ class ApplQueueResolution(Enum):
     END_SESSION = '3'
 
 
+class ApplVerID(Enum):
+    FIX27 = '0'
+    FIX30 = '1'
+    FIX40 = '2'
+    FIX41 = '3'
+    FIX42 = '4'
+    FIX43 = '5'
+    FIX44 = '6'
+    FIX50 = '7'
+
+
+class AsOfIndicator(Enum):
+    FALSE = '0'
+    TRUE = '1'
+
+
 class AssignmentMethod(Enum):
+    PRO_RATA = 'P'
     RANDOM = 'R'
-    PRORATA = 'P'
 
 
 class AvgPxIndicator(Enum):
     NO_AVERAGE_PRICING = '0'
     TRADE_IS_PART_OF_AN_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = '1'
-    LAST_TRADE_IN_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = '2'
+    LAST_TRADE_IS_THE_AVERAGE_PRICE_GROUP_IDENTIFIED_BY_THE_TRADELINKID = '2'
 
 
 class BasisPxType(Enum):
@@ -1111,6 +1344,21 @@ class BasisPxType(Enum):
     OTHERS = 'Z'
 
 
+class BenchmarkCurveName(Enum):
+    EONIA = 'EONIA'
+    EUREPO = 'EUREPO'
+    EURIBOR = 'Euribor'
+    FUTURESWAP = 'FutureSWAP'
+    LIBID = 'LIBID'
+    LIBOR = 'LIBOR'
+    MUNIAAA = 'MuniAAA'
+    OTHER = 'OTHER'
+    PFANDBRIEFE = 'Pfandbriefe'
+    SONIA = 'SONIA'
+    SWAP = 'SWAP'
+    TREASURY = 'Treasury'
+
+
 class BidDescriptorType(Enum):
     SECTOR = '1'
     COUNTRY = '2'
@@ -1118,20 +1366,20 @@ class BidDescriptorType(Enum):
 
 
 class BidRequestTransType(Enum):
-    NEW = 'N'
     CANCEL = 'C'
+    NO = 'N'
 
 
 class BidTradeType(Enum):
-    RISK_TRADE = 'R'
-    VWAP_GUARANTEE = 'G'
     AGENCY = 'A'
+    VWAP_GUARANTEE = 'G'
     GUARANTEED_CLOSE = 'J'
+    RISK_TRADE = 'R'
 
 
 class BidType(Enum):
     NON_DISCLOSED_STYLE = '1'
-    DISCLOSED_STYLE = '2'
+    DISCLOSED_SYTLE = '2'
     NO_BIDDING_PROCESS = '3'
 
 
@@ -1149,13 +1397,14 @@ class BookingUnit(Enum):
 
 class BusinessRejectReason(Enum):
     OTHER = '0'
-    UNKOWN_ID = '1'
+    UNKNOWN_ID = '1'
     UNKNOWN_SECURITY = '2'
-    UNSUPPORTED_MESSAGE_TYPE = '3'
+    UNKNOWN_MESSAGE_TYPE = '3'
     APPLICATION_NOT_AVAILABLE = '4'
     CONDITIONALLY_REQUIRED_FIELD_MISSING = '5'
     NOT_AUTHORIZED = '6'
     DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME = '7'
+    INVALID_PRICE_INCREMENT = '18'
 
 
 class CPProgram(Enum):
@@ -1166,9 +1415,9 @@ class CPProgram(Enum):
 
 class CancellationRights(Enum):
     YES = 'Y'
-    NO_EXECUTION_ONLY = 'N'
-    NO_WAIVER_AGREEMENT = 'M'
-    NO_INSTITUTIONAL = 'O'
+    NO_N = 'N'
+    NO_M = 'M'
+    NO_O = 'O'
 
 
 class CashMargin(Enum):
@@ -1178,20 +1427,20 @@ class CashMargin(Enum):
 
 
 class ClearingFeeIndicator(Enum):
+    ONE_ST_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '1'
+    TWO_ND_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '2'
+    THREE_RD_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '3'
+    FOUR_TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '4'
+    FIVE_TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '5'
+    SIX_TH_YEAR_DELEGATE_TRADING_FOR_OWN_ACCOUNT = '9'
     CBOE_MEMBER = 'B'
     NON_MEMBER_AND_CUSTOMER = 'C'
     EQUITY_MEMBER_AND_CLEARING_MEMBER = 'E'
     FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS = 'F'
     ONE_HUNDRED_AND_SIX_H_AND_106_J_FIRMS = 'H'
     GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS = 'I'
-    LESSEE_AND_106_F_EMPLOYEES = 'L'
+    LESSEE_106_F_EMPLOYEES = 'L'
     ALL_OTHER_OWNERSHIP_TYPES = 'M'
-    ONE_ST_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '1'
-    TWO_ND_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '2'
-    THREE_RD_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '3'
-    FOUR_TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '4'
-    FIVE_TH_YEAR_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '5'
-    SIX_TH_YEAR_AND_BEYOND_DELEGATE_TRADING_FOR_HIS_OWN_ACCOUNT = '9'
 
 
 class ClearingInstruction(Enum):
@@ -1206,7 +1455,7 @@ class ClearingInstruction(Enum):
     MANUAL_MODE = '8'
     AUTOMATIC_POSTING_MODE = '9'
     AUTOMATIC_GIVE_UP_MODE = '10'
-    QUALIFIED_SERVICE_REPRESENTATIVE = '11'
+    QUALIFIED_SERVICE_REPRESENTATIVE_QSR = '11'
     CUSTOMER_TRADE = '12'
     SELF_CLEARING = '13'
 
@@ -1215,6 +1464,11 @@ class CollAction(Enum):
     RETAIN = '0'
     ADD = '1'
     REMOVE = '2'
+
+
+class CollApplType(Enum):
+    SPECIFIC_DEPOSIT = '0'
+    GENERAL = '1'
 
 
 class CollAsgnReason(Enum):
@@ -1254,9 +1508,9 @@ class CollAsgnTransType(Enum):
 
 
 class CollInquiryQualifier(Enum):
-    TRADEDATE = '0'
+    TRADE_DATE = '0'
     GC_INSTRUMENT = '1'
-    COLLATERALINSTRUMENT = '2'
+    COLLATERAL_INSTRUMENT = '2'
     SUBSTITUTION_ELIGIBLE = '3'
     NOT_ASSIGNED = '4'
     PARTIALLY_ASSIGNED = '5'
@@ -1296,11 +1550,11 @@ class CollStatus(Enum):
 
 class CommType(Enum):
     PER_UNIT = '1'
-    PERCENTAGE = '2'
+    PERCENT = '2'
     ABSOLUTE = '3'
-    FOUR = '4'
-    FIVE = '5'
-    POINTS_PER_BOND_OR_CONTRACT_SUPPLY_CONTRACTMULTIPLIER = '6'
+    PERCENTAGE_WAIVED_4 = '4'
+    PERCENTAGE_WAIVED_5 = '5'
+    POINTS_PER_BOND_OR_CONTRACT = '6'
 
 
 class ConfirmRejReason(Enum):
@@ -1331,16 +1585,16 @@ class ConfirmType(Enum):
 
 class ContAmtType(Enum):
     COMMISSION_AMOUNT = '1'
-    COMMISSION = '2'
+    COMMISSION_PERCENT = '2'
     INITIAL_CHARGE_AMOUNT = '3'
-    INITIAL_CHARGE = '4'
+    INITIAL_CHARGE_PERCENT = '4'
     DISCOUNT_AMOUNT = '5'
-    DISCOUNT = '6'
+    DISCOUNT_PERCENT = '6'
     DILUTION_LEVY_AMOUNT = '7'
-    DILUTION_LEVY = '8'
+    DILUTION_LEVY_PERCENT = '8'
     EXIT_CHARGE_AMOUNT = '9'
-    EXIT_CHARGE = '10'
-    FUND_BASED_RENEWAL_COMMISSION = '11'
+    EXIT_CHARGE_PERCENT = '10'
+    FUND_BASED_RENEWAL_COMMISSION_PERCENT = '11'
     PROJECTED_FUND_VALUE = '12'
     FUND_BASED_RENEWAL_COMMISSION_AMOUNT_13 = '13'
     FUND_BASED_RENEWAL_COMMISSION_AMOUNT_14 = '14'
@@ -1353,6 +1607,23 @@ class CorporateAction(Enum):
     EX_RIGHTS = 'C'
     NEW = 'D'
     EX_INTEREST = 'E'
+    CASH_DIVIDEND = 'F'
+    STOCK_DIVIDEND = 'G'
+    NON_INTEGER_STOCK_SPLIT = 'H'
+    REVERSE_STOCK_SPLIT = 'I'
+    STANDARD_INTEGER_STOCK_SPLIT = 'J'
+    POSITION_CONSOLIDATION = 'K'
+    LIQUIDATION_REORGANIZATION = 'L'
+    MERGER_REORGANIZATION = 'M'
+    RIGHTS_OFFERING = 'N'
+    SHAREHOLDER_MEETING = 'O'
+    SPINOFF = 'P'
+    TENDER_OFFER = 'Q'
+    WARRANT = 'R'
+    SPECIAL_ACTION = 'S'
+    SYMBOL_CONVERSION = 'T'
+    CUSIP = 'U'
+    LEAP_ROLLOVER = 'V'
 
 
 class CoveredOrUncovered(Enum):
@@ -1367,10 +1638,10 @@ class CrossPrioritization(Enum):
 
 
 class CrossType(Enum):
-    CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT_BOTH_SIDES_ARE_TREATED_IN_THE_SAME_MANNER_THIS_IS_EQUIVALENT_TO_AN_ALL_OR_NONE = '1'
-    CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED_ONE_SIDE_IS_FULLY_EXECUTED_THE_OTHER_SIDE_IS_PARTIALLY_EXECUTED_WITH_THE_REMAINDER_BEING_CANCELLED_THIS_IS_EQUIVALENT_TO_AN_IMMEDIATE_OR_CANCEL_ON_THE_OTHER_SIDE_NOTE_THE_CROSSPRIORITZATION = '2'
-    CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE_ONE_SIDE_OF_THE_CROSS_IS_FULLY_EXECUTED = '3'
-    CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE_IN_THE_CASE_OTHER_ORDERS_EXIST_WITH_THE_SAME_PRICE_THE_QUANTITY_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_EXISTING_ORDERS_AND_QUOTES_THE_REMAINDER_OF_THE_CROSS_IS_EXECUTED_AGAINST_THE_OTHER_SIDE_OF_THE_CROSS_THE_TWO_SIDES_POTENTIALLY_HAVE_DIFFERENT_QUANTITIES = '4'
+    CROSS_AON = '1'
+    CROSS_IOC = '2'
+    CROSS_ONE_SIDE = '3'
+    CROSS_SAME_PRICE = '4'
 
 
 class CustOrderCapacity(Enum):
@@ -1378,6 +1649,33 @@ class CustOrderCapacity(Enum):
     CLEARING_FIRM_TRADING_FOR_ITS_PROPRIETARY_ACCOUNT = '2'
     MEMBER_TRADING_FOR_ANOTHER_MEMBER = '3'
     ALL_OTHER = '4'
+
+
+class CustOrderHandlingInst(Enum):
+    ADD_ON_ORDER = 'ADD'
+    ALL_OR_NONE = 'AON'
+    CASH_NOT_HELD = 'CNH'
+    DIRECTED_ORDER = 'DIR'
+    EXCHANGE_FOR_PHYSICAL_TRANSACTION = 'E.W'
+    FILL_OR_KILL = 'FOK'
+    IMBALANCE_ONLY = 'IO'
+    IMMEDIATE_OR_CANCEL = 'IOC'
+    LIMIT_ON_OPEN = 'LOO'
+    LIMIT_ON_CLOSE = 'LOC'
+    MARKET_AT_OPEN = 'MAO'
+    MARKET_AT_CLOSE = 'MAC'
+    MARKET_ON_OPEN = 'MOO'
+    MARKET_ON_CLOSE = 'MOC'
+    MINIMUM_QUANTITY = 'MQT'
+    NOT_HELD = 'NH'
+    OVER_THE_DAY = 'OVD'
+    PEGGED = 'PEG'
+    RESERVE_SIZE_ORDER = 'RSV'
+    STOP_STOCK_TRANSACTION = 'S.W'
+    SCALE = 'SCL'
+    TIME_ORDER = 'TMO'
+    TRAILING_STOP = 'TS'
+    WORK = 'WRK'
 
 
 class CxlRejReason(Enum):
@@ -1388,6 +1686,7 @@ class CxlRejReason(Enum):
     UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = '4'
     ORIGORDMODTIME = '5'
     DUPLICATE_CLORDID = '6'
+    INVALID_PRICE_INCREMENT = '18'
     OTHER = '99'
 
 
@@ -1413,12 +1712,12 @@ class DayBookingInst(Enum):
 
 
 class DeleteReason(Enum):
-    CANCELATION = '0'
+    CANCELLATION = '0'
     ERROR = '1'
 
 
 class DeliveryForm(Enum):
-    BOOKENTRY = '1'
+    BOOK_ENTRY = '1'
     BEARER = '2'
 
 
@@ -1429,6 +1728,51 @@ class DeliveryType(Enum):
     HOLD_IN_CUSTODY = '3'
 
 
+class DeskOrderHandlingInst(Enum):
+    ADD_ON_ORDER = 'ADD'
+    ALL_OR_NONE = 'AON'
+    CASH_NOT_HELD = 'CNH'
+    DIRECTED_ORDER = 'DIR'
+    EXCHANGE_FOR_PHYSICAL_TRANSACTION = 'E.W'
+    FILL_OR_KILL = 'FOK'
+    IMBALANCE_ONLY = 'IO'
+    IMMEDIATE_OR_CANCEL = 'IOC'
+    LIMIT_ON_OPEN = 'LOO'
+    LIMIT_ON_CLOSE = 'LOC'
+    MARKET_AT_OPEN = 'MAO'
+    MARKET_AT_CLOSE = 'MAC'
+    MARKET_ON_OPEN = 'MOO'
+    MARKET_ON_CLOSE = 'MOC'
+    MINIMUM_QUANTITY = 'MQT'
+    NOT_HELD = 'NH'
+    OVER_THE_DAY = 'OVD'
+    PEGGED = 'PEG'
+    RESERVE_SIZE_ORDER = 'RSV'
+    STOP_STOCK_TRANSACTION = 'S.W'
+    SCALE = 'SCL'
+    TIME_ORDER = 'TMO'
+    TRAILING_STOP = 'TS'
+    WORK = 'WRK'
+
+
+class DeskType(Enum):
+    AGENCY = 'A'
+    ARBITRAGE = 'AR'
+    DERIVATIVES = 'D'
+    INTERNATIONAL = 'IN'
+    INSTITUTIONAL = 'IS'
+    OTHER = 'O'
+    PREFERRED_TRADING = 'PF'
+    PROPRIETARY = 'PR'
+    PROGRAM_TRADING = 'PT'
+    SALES = 'S'
+    TRADING = 'T'
+
+
+class DeskTypeSource(Enum):
+    NASD_OATS = '1'
+
+
 class DiscretionInst(Enum):
     RELATED_TO_DISPLAYED_PRICE = '0'
     RELATED_TO_MARKET_PRICE = '1'
@@ -1437,12 +1781,13 @@ class DiscretionInst(Enum):
     RELATED_TO_MIDPOINT_PRICE = '4'
     RELATED_TO_LAST_TRADE_PRICE = '5'
     RELATED_TO_VWAP = '6'
+    AVERAGE_PRICE_GUARANTEE = '7'
 
 
 class DiscretionLimitType(Enum):
     OR_BETTER = '0'
-    STRICT_LIMIT_IS_A_STRICT_LIMIT = '1'
-    OR_WORSE_FOR_A_BUY_THE_DISCRETION_PRICE_IS_A_MINIMUM_AND_FOR_A_SELL_THE_DISCRETION_PRICE_IS_A_MAXIMUM = '2'
+    STRICT = '1'
+    OR_WORSE = '2'
 
 
 class DiscretionMoveType(Enum):
@@ -1458,8 +1803,8 @@ class DiscretionOffsetType(Enum):
 
 
 class DiscretionRoundDirection(Enum):
-    MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK = '1'
-    MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK = '2'
+    MORE_AGGRESSIVE = '1'
+    MORE_PASSIVE = '2'
 
 
 class DiscretionScope(Enum):
@@ -1469,6 +1814,17 @@ class DiscretionScope(Enum):
     NATIONAL_EXCLUDING_LOCAL = '4'
 
 
+class DisplayMethod(Enum):
+    INITIAL = '1'
+    NEW = '2'
+    RANDOM = '3'
+
+
+class DisplayWhen(Enum):
+    IMMEDIATE = '1'
+    EXHAUST = '2'
+
+
 class DistribPaymentMethod(Enum):
     CREST = '1'
     NSCC = '2'
@@ -1476,22 +1832,22 @@ class DistribPaymentMethod(Enum):
     CLEARSTREAM = '4'
     CHEQUE = '5'
     TELEGRAPHIC_TRANSFER = '6'
-    FEDWIRE = '7'
+    FED_WIRE = '7'
     DIRECT_CREDIT = '8'
     ACH_CREDIT = '9'
     BPAY = '10'
-    HIGH_VALUE_CLEARING_SYSTEM = '11'
+    HIGH_VALUE_CLEARING_SYSTEM_HVACS = '11'
     REINVEST_IN_FUND = '12'
 
 
 class DlvyInstType(Enum):
-    SECURITIES = 'S'
     CASH = 'C'
+    SECURITIES = 'S'
 
 
 class DueToRelated(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class EmailType(Enum):
@@ -1502,12 +1858,12 @@ class EmailType(Enum):
 
 class EncryptMethod(Enum):
     NONE = '0'
-    PKCS = '1'
+    PKCS_1 = '1'
     DES = '2'
-    PKCS_DES = '3'
-    PGP_DES = '4'
-    PGP_DES_MD5 = '5'
-    PEM_DES_MD5 = '6'
+    PKCS_3 = '3'
+    PGP_4 = '4'
+    PGP_5 = '5'
+    PEM = '6'
 
 
 class EventType(Enum):
@@ -1515,15 +1871,32 @@ class EventType(Enum):
     CALL = '2'
     TENDER = '3'
     SINKING_FUND_CALL = '4'
+    ACTIVATION = '5'
+    INACTIVIATION = '6'
     OTHER = '99'
 
 
+class ExDestinationIDSource(Enum):
+    BIC = 'B'
+    GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = 'C'
+    PROPRIETARY = 'D'
+    ISO_COUNTRY_CODE = 'E'
+    MIC = 'G'
+
+
 class ExchangeForPhysical(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
+
+
+class ExecAckStatus(Enum):
+    RECEIVED_NOT_YET_PROCESSED = '0'
+    ACCEPTED = '1'
+    DONT_KNOW = '2'
 
 
 class ExecInst(Enum):
+    STAY_ON_OFFER_SIDE = '0'
     NOT_HELD = '1'
     WORK = '2'
     GO_ALONG = '3'
@@ -1532,8 +1905,7 @@ class ExecInst(Enum):
     PARTICIPATE_DONT_INITIATE = '6'
     STRICT_SCALE = '7'
     TRY_TO_SCALE = '8'
-    STAY_ON_BIDSIDE = '9'
-    STAY_ON_OFFERSIDE = '0'
+    STAY_ON_BID_SIDE = '9'
     NO_CROSS = 'A'
     OK_TO_CROSS = 'B'
     CALL_FIRST = 'C'
@@ -1541,7 +1913,7 @@ class ExecInst(Enum):
     DO_NOT_INCREASE = 'E'
     DO_NOT_REDUCE = 'F'
     ALL_OR_NONE = 'G'
-    REINSTATE_ON_SYSTEM_FAILURE = 'H'
+    REINSTATE_ON_SYSTEM_FAILUE = 'H'
     INSTITUTIONS_ONLY = 'I'
     REINSTATE_ON_TRADING_HALT = 'J'
     CANCEL_ON_TRADING_HALT = 'K'
@@ -1553,6 +1925,7 @@ class ExecInst(Enum):
     CANCEL_ON_SYSTEM_FAILURE = 'Q'
     PRIMARY_PEG = 'R'
     SUSPEND = 'S'
+    FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER = 'T'
     CUSTOMER_DISPLAY_INSTRUCTION = 'U'
     NETTING = 'V'
     PEG_TO_VWAP = 'W'
@@ -1564,15 +1937,21 @@ class ExecInst(Enum):
     IGNORE_PRICE_VALIDITY_CHECKS = 'c'
     PEG_TO_LIMIT_PRICE = 'd'
     WORK_TO_TARGET_STRATEGY = 'e'
+    INTERMARKET_SWEEP = 'f'
+    EXTERNAL_ROUTING_ALLOWED = 'g'
+    EXTERNAL_ROUTING_NOT_ALLOWED = 'h'
+    IMBALANCE_ONLY = 'i'
+    SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE = 'j'
+    BEST_EXECUTION = 'k'
 
 
 class ExecPriceType(Enum):
     BID_PRICE = 'B'
     CREATION_PRICE = 'C'
-    CREATION_PRICE_PLUS_ADJUSTMENT = 'D'
+    CREATION_PRICE_PLUS_ADJUSTMENT_PERCENT = 'D'
     CREATION_PRICE_PLUS_ADJUSTMENT_AMOUNT = 'E'
     OFFER_PRICE = 'O'
-    OFFER_PRICE_MINUS_ADJUSTMENT = 'P'
+    OFFER_PRICE_MINUS_ADJUSTMENT_PERCENT = 'P'
     OFFER_PRICE_MINUS_ADJUSTMENT_AMOUNT = 'Q'
     SINGLE_PRICE = 'S'
 
@@ -1589,6 +1968,7 @@ class ExecRestatementReason(Enum):
     MARKET = '8'
     CANCELED_NOT_BEST = '9'
     WAREHOUSE_RECAP = '10'
+    PEG_REFRESH = '11'
     OTHER = '99'
 
 
@@ -1596,7 +1976,7 @@ class ExecType(Enum):
     NEW = '0'
     DONE_FOR_DAY = '3'
     CANCELED = '4'
-    REPLACE = '5'
+    REPLACED = '5'
     PENDING_CANCEL = '6'
     STOPPED = '7'
     REJECTED = '8'
@@ -1610,11 +1990,22 @@ class ExecType(Enum):
     TRADE_CORRECT = 'G'
     TRADE_CANCEL = 'H'
     ORDER_STATUS = 'I'
+    TRADE_IN_A_CLEARING_HOLD = 'J'
+    TRADE_HAS_BEEN_RELEASED_TO_CLEARING = 'K'
+    TRIGGERED_OR_ACTIVATED_BY_SYSTEM = 'L'
 
 
 class ExerciseMethod(Enum):
     AUTOMATIC = 'A'
     MANUAL = 'M'
+
+
+class ExpType(Enum):
+    AUTO_EXERCISE = '1'
+    NON_AUTO_EXERCISE = '2'
+    FINAL_WILL_BE_EXERCISED = '3'
+    CONTRARY_INTENTION = '4'
+    DIFFERENCE = '5'
 
 
 class ExpirationCycle(Enum):
@@ -1625,16 +2016,17 @@ class ExpirationCycle(Enum):
 class FinancialStatus(Enum):
     BANKRUPT = '1'
     PENDING_DELISTING = '2'
+    RESTRICTED = '3'
 
 
 class ForexReq(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class FundRenewWaiv(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class GTBookingInst(Enum):
@@ -1644,17 +2036,17 @@ class GTBookingInst(Enum):
 
 
 class GapFillFlag(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class HaltReasonChar(Enum):
-    ORDER_IMBALANCE = 'I'
-    EQUIPMENT_CHANGEOVER = 'X'
-    NEWS_PENDING = 'P'
     NEWS_DISSEMINATION = 'D'
     ORDER_INFLUX = 'E'
+    ORDER_IMBALANCE = 'I'
     ADDITIONAL_INFORMATION = 'M'
+    NEW_PENDING = 'P'
+    EQUIPMENT_CHANGEOVER = 'X'
 
 
 class HandlInst(Enum):
@@ -1664,20 +2056,21 @@ class HandlInst(Enum):
 
 
 class IOINaturalFlag(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class IOIQltyInd(Enum):
+    HIGH = 'H'
     LOW = 'L'
     MEDIUM = 'M'
-    HIGH = 'H'
 
 
 class IOIQty(Enum):
     SMALL = 'S'
     MEDIUM = 'M'
     LARGE = 'L'
+    UNDISCLOSED_QUANTITY = 'U'
 
 
 class IOIQualifier(Enum):
@@ -1695,7 +2088,7 @@ class IOIQualifier(Enum):
     PORTFOLIO_SHOWN = 'S'
     THROUGH_THE_DAY = 'T'
     VERSUS = 'V'
-    INDICATION = 'W'
+    INDIDCATION = 'W'
     CROSSING_OPPORTUNITY = 'X'
     AT_THE_MIDPOINT = 'Y'
     PRE_OPEN = 'Z'
@@ -1708,13 +2101,18 @@ class IOITransType(Enum):
 
 
 class InViewOfCommon(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class IncTaxInd(Enum):
     NET = '1'
     GROSS = '2'
+
+
+class IndividualAllocType(Enum):
+    SUB_ALLOCATE = '1'
+    THIRD_PARTY_ALLOCATION = '2'
 
 
 class InstrAttribType(Enum):
@@ -1730,8 +2128,8 @@ class InstrAttribType(Enum):
     ORIGINAL_ISSUE_DISCOUNT = '10'
     CALLABLE_PUTTABLE = '11'
     ESCROWED_TO_MATURITY = '12'
-    ESCROWED_TO_REDEMPTION_DATE_CALLABLE_SUPPLY_REDEMPTION_DATE_IN_THE_INSTRATTRIBVALUE = '13'
-    PREREFUNDED = '14'
+    ESCROWED_TO_REDEMPTION_DATE = '13'
+    PRE_REFUNDED = '14'
     IN_DEFAULT = '15'
     UNRATED = '16'
     TAXABLE = '17'
@@ -1743,6 +2141,11 @@ class InstrAttribType(Enum):
     TEXT_SUPPLY_THE_TEXT_OF_THE_ATTRIBUTE_OR_DISCLAIMER_IN_THE_INSTRATTRIBVALUE = '99'
 
 
+class InstrmtAssignmentMethod(Enum):
+    RANDOM = 'R'
+    PRORATA = 'P'
+
+
 class LastCapacity(Enum):
     AGENT = '1'
     CROSS_AS_AGENT = '2'
@@ -1751,14 +2154,19 @@ class LastCapacity(Enum):
 
 
 class LastFragment(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class LastLiquidityInd(Enum):
     ADDED_LIQUIDITY = '1'
     REMOVED_LIQUIDITY = '2'
     LIQUIDITY_ROUTED_OUT = '3'
+
+
+class LastRptRequested(Enum):
+    NO = 'N'
+    YES = 'Y'
 
 
 class LegSwapType(Enum):
@@ -1769,8 +2177,8 @@ class LegSwapType(Enum):
 
 
 class LegalConfirm(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class LiquidityIndType(Enum):
@@ -1782,17 +2190,17 @@ class LiquidityIndType(Enum):
 
 class ListExecInstType(Enum):
     IMMEDIATE = '1'
-    WAIT_FOR_EXECUTE_INSTRUCTION = '2'
-    EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = '3'
-    EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = '4'
-    EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = '5'
+    WAIT_FOR_EXECUT_INSTRUCTION = '2'
+    EXCHANGE_SWITCH_CIV_ORDER_3 = '3'
+    EXCHANGE_SWITCH_CIV_ORDER_4 = '4'
+    EXCHANGE_SWITCH_CIV_ORDER_5 = '5'
 
 
 class ListOrderStatus(Enum):
-    INBIDDINGPROCESS = '1'
-    RECEIVEDFOREXECUTION = '2'
+    IN_BIDDING_PROCESS = '1'
+    RECEIVED_FOR_EXECUTION = '2'
     EXECUTING = '3'
-    CANCELING = '4'
+    CANCELLING = '4'
     ALERT = '5'
     ALL_DONE = '6'
     REJECT = '7'
@@ -1802,14 +2210,26 @@ class ListStatusType(Enum):
     ACK = '1'
     RESPONSE = '2'
     TIMED = '3'
-    EXECSTARTED = '4'
-    ALLDONE = '5'
+    EXEC_STARTED = '4'
+    ALL_DONE = '5'
     ALERT = '6'
 
 
 class LocateReqd(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
+
+
+class LotType(Enum):
+    ODD_LOT = '1'
+    ROUND_LOT = '2'
+    BLOCK_LOT = '3'
+
+
+class MDBookType(Enum):
+    TOP_OF_BOOK = '1'
+    PRICE_DEPTH = '2'
+    ORDER_DEPTH = '3'
 
 
 class MDEntryType(Enum):
@@ -1826,11 +2246,38 @@ class MDEntryType(Enum):
     IMBALANCE = 'A'
     TRADE_VOLUME = 'B'
     OPEN_INTEREST = 'C'
+    COMPOSITE_UNDERLYING_PRICE = 'D'
+    SIMULATED_SELL_PRICE = 'E'
+    SIMULATED_BUY_PRICE = 'F'
+    MARGIN_RATE = 'G'
+    MID_PRICE = 'H'
+    EMPTY_BOOK = 'J'
+    SETTLE_HIGH_PRICE = 'K'
+    SETTLE_LOW_PRICE = 'L'
+    PRIOR_SETTLE_PRICE = 'M'
+    SESSION_HIGH_BID = 'N'
+    SESSION_LOW_OFFER = 'O'
+    EARLY_PRICES = 'P'
+    AUCTION_CLEARING_PRICE = 'Q'
 
 
 class MDImplicitDelete(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
+
+
+class MDOriginType(Enum):
+    BOOK = '0'
+    OFF_BOOK = '1'
+    CROSS = '2'
+
+
+class MDQuoteType(Enum):
+    INDICATIVE = '0'
+    TRADEABLE = '1'
+    RESTRICTED_TRADEABLE = '2'
+    COUNTER = '3'
+    INDICATIVE_AND_TRADEABLE = '4'
 
 
 class MDReqRejReason(Enum):
@@ -1847,12 +2294,15 @@ class MDReqRejReason(Enum):
     UNSUPPORTED_SCOPE = 'A'
     UNSUPPORTED_OPENCLOSESETTLEFLAG = 'B'
     UNSUPPORTED_MDIMPLICITDELETE = 'C'
+    INSUFFICIENT_CREDIT = 'D'
 
 
 class MDUpdateAction(Enum):
     NEW = '0'
     CHANGE = '1'
     DELETE = '2'
+    DELETE_THRU = '3'
+    DELETE_FROM = '4'
 
 
 class MDUpdateType(Enum):
@@ -1863,10 +2313,10 @@ class MDUpdateType(Enum):
 class MassCancelRejectReason(Enum):
     MASS_CANCEL_NOT_SUPPORTED = '0'
     INVALID_OR_UNKNOWN_SECURITY = '1'
-    INVALID_OR_UNKNOWN_UNDERLYING = '2'
+    INVALID_OR_UNKOWN_UNDERLYING_SECURITY = '2'
     INVALID_OR_UNKNOWN_PRODUCT = '3'
     INVALID_OR_UNKNOWN_CFICODE = '4'
-    INVALID_OR_UNKNOWN_SECURITY_TYPE = '5'
+    INVALID_OR_UNKNOWN_SECURITYTYPE = '5'
     INVALID_OR_UNKNOWN_TRADING_SESSION = '6'
     OTHER = '99'
 
@@ -1905,18 +2355,28 @@ class MassStatusReqType(Enum):
 
 class MatchStatus(Enum):
     COMPARED_MATCHED_OR_AFFIRMED = '0'
-    UNCOMPARED_UNMATCHED_OR_UNAFFIRMED = '1'
+    UNCOMPARED_UNMATCHED_OR_UNAFFIRED = '1'
     ADVISORY_OR_ALERT = '2'
 
 
 class MatchType(Enum):
+    ONE_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = '60'
+    TWO_PARTY_PRIVATELY_NEGOTIATED_TRADE_REPORT = '61'
+    CONTINUOUS_AUTO_MATCH = '62'
+    CROSS_AUCTION_63 = '63'
+    COUNTER_ORDER_SELECTION_64 = '64'
+    CALL_AUCTION_65 = '65'
+    ACT_ACCEPTED_TRADE = 'M3'
+    ACT_DEFAULT_TRADE = 'M4'
+    ACT_DEFAULT_AFTER_M2 = 'M5'
+    ACT_M6_MATCH = 'M6'
     EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = 'A1'
     EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_FOUR_BADGES = 'A2'
     EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES_AND_EXECUTION_TIME = 'A3'
     EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_TWO_BADGES = 'A4'
-    EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = 'A5'
+    EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADETYPE_AND_SPECIAL_TRADE_INDICATOR_PLUS_EXECUTION_TIME = 'A5'
     COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS_PAIR_OFFS = 'AQ'
-    SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = 'S1'
+    SUMMARIZED_MATCH_USING_A1_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIED = 'S1'
     SUMMARIZED_MATCH_USING_A2_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = 'S2'
     SUMMARIZED_MATCH_USING_A3_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = 'S3'
     SUMMARIZED_MATCH_USING_A4_EXACT_MATCH_CRITERIA_EXCEPT_QUANTITY_IS_SUMMARIZED = 'S4'
@@ -1924,17 +2384,13 @@ class MatchType(Enum):
     EXACT_MATCH_ON_TRADE_DATE_STOCK_SYMBOL_QUANTITY_PRICE_TRADE_TYPE_AND_SPECIAL_TRADE_INDICATOR_MINUS_BADGES_AND_TIMES_ACT_M1_MATCH = 'M1'
     SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES_ACT_M2_MATCH = 'M2'
     OCS_LOCKED_IN_NON_ACT = 'MT'
-    ACT_ACCEPTED_TRADE = 'M3'
-    ACT_DEFAULT_TRADE = 'M4'
-    ACT_DEFAULT_AFTER_M2 = 'M5'
-    ACT_M6_MATCH = 'M6'
-
-
-class MessageEncoding(Enum):
-    JIS = 'ISO-2022-JP'
-    EUC = 'EUC-JP'
-    FOR_USING_SJIS = 'Shift_JIS'
-    UNICODE = 'UTF-8'
+    ONE_PARTY_TRADE_REPORT = '1'
+    TWO_PARTY_TRADE_REPORT = '2'
+    CONFIRMED_TRADE_REPORT = '3'
+    AUTO_MATCH = '4'
+    CROSS_AUCTION_5 = '5'
+    COUNTER_ORDER_SELECTION_6 = '6'
+    CALL_AUCTION_7 = '7'
 
 
 class MiscFeeBasis(Enum):
@@ -1956,19 +2412,21 @@ class MiscFeeType(Enum):
     PER_TRANSACTION = '10'
     CONVERSION = '11'
     AGENT = '12'
+    TRANSFER_FEE = '13'
+    SECURITY_LENDING = '14'
 
 
 class MoneyLaunderingStatus(Enum):
     PASSED = 'Y'
     NOT_CHECKED = 'N'
-    EXEMPT_BELOW_THE_LIMIT = '1'
-    EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION = '2'
-    EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION = '3'
+    EXEMPT_1 = '1'
+    EXEMPT_2 = '2'
+    EXEMPT_3 = '3'
 
 
 class MsgDirection(Enum):
-    SEND = 'S'
     RECEIVE = 'R'
+    SEND = 'S'
 
 
 class MsgType(Enum):
@@ -1985,8 +2443,8 @@ class MsgType(Enum):
     LOGON = 'A'
     NEWS = 'B'
     EMAIL = 'C'
-    ORDER_SINGLE = 'D'
-    ORDER_LIST = 'E'
+    NEW_ORDER_D = 'D'
+    NEW_ORDER_E = 'E'
     ORDER_CANCEL_REQUEST = 'F'
     ORDER_CANCEL_REPLACE_REQUEST = 'G'
     ORDER_STATUS_REQUEST = 'H'
@@ -2001,8 +2459,8 @@ class MsgType(Enum):
     QUOTE = 'S'
     SETTLEMENT_INSTRUCTIONS = 'T'
     MARKET_DATA_REQUEST = 'V'
-    MARKET_DATA_SNAPSHOT_FULL_REFRESH = 'W'
-    MARKET_DATA_INCREMENTAL_REFRESH = 'X'
+    MARKET_DATA_W = 'W'
+    MARKET_DATA_X = 'X'
     MARKET_DATA_REQUEST_REJECT = 'Y'
     QUOTE_CANCEL = 'Z'
     QUOTE_STATUS_REQUEST = 'a'
@@ -2059,17 +2517,25 @@ class MsgType(Enum):
     COLLATERAL_RESPONSE = 'AZ'
     COLLATERAL_REPORT = 'BA'
     COLLATERAL_INQUIRY = 'BB'
-    NETWORK_BC = 'BC'
-    NETWORK_BD = 'BD'
+    NETWORK_COUNTERPARTY_SYSTEM_STATUS_REQUEST = 'BC'
+    NETWORK_COUNTERPARTY_SYSTEM_STATUS_RESPONSE = 'BD'
     USER_REQUEST = 'BE'
     USER_RESPONSE = 'BF'
     COLLATERAL_INQUIRY_ACK = 'BG'
     CONFIRMATION_REQUEST = 'BH'
+    TRADING_SESSION_LIST_REQUEST = 'BI'
+    TRADING_SESSION_LIST = 'BJ'
+    SECURITY_LIST_UPDATE_REPORT = 'BK'
+    ADJUSTED_POSITION_REPORT = 'BL'
+    ALLOCATION_INSTRUCTION_ALERT = 'BM'
+    EXECUTION_ACKNOWLEDGEMENT = 'BN'
+    CONTRARY_INTENTION_REPORT = 'BO'
+    SECURITY_DEFINITION_UPDATE_REPORT = 'BP'
 
 
 class MultiLegReportingType(Enum):
     SINGLE_SECURITY = '1'
-    INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = '2'
+    INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = '2'
     MULTI_LEG_SECURITY = '3'
 
 
@@ -2102,13 +2568,13 @@ class NoSides(Enum):
 
 
 class NotifyBrokerOfCredit(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class OddLot(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class OpenCloseSettlFlag(Enum):
@@ -2132,10 +2598,12 @@ class OrdRejReason(Enum):
     STALE_ORDER = '8'
     TRADE_ALONG_REQUIRED = '9'
     INVALID_INVESTOR_ID = '10'
-    UNSUPPORTED_ORDER_CHARACTERISTIC12_SURVEILLENCE_OPTION = '11'
+    UNSUPPORTED_ORDER_CHARACTERISTIC = '11'
+    SURVEILLENCE_OPTION = '12'
     INCORRECT_QUANTITY = '13'
     INCORRECT_ALLOCATED_QUANTITY = '14'
     UNKNOWN_ACCOUNT = '15'
+    INVALID_PRICE_INCREMENT = '18'
     OTHER = '99'
 
 
@@ -2145,6 +2613,7 @@ class OrdStatus(Enum):
     FILLED = '2'
     DONE_FOR_DAY = '3'
     CANCELED = '4'
+    REPLACED = '5'
     PENDING_CANCEL = '6'
     STOPPED = '7'
     REJECTED = '8'
@@ -2161,19 +2630,26 @@ class OrdType(Enum):
     LIMIT = '2'
     STOP = '3'
     STOP_LIMIT = '4'
+    MARKET_ON_CLOSE = '5'
     WITH_OR_WITHOUT = '6'
     LIMIT_OR_BETTER = '7'
     LIMIT_WITH_OR_WITHOUT = '8'
     ON_BASIS = '9'
+    ON_CLOSE = 'A'
+    LIMIT_ON_CLOSE = 'B'
+    FOREX_MARKET = 'C'
     PREVIOUSLY_QUOTED = 'D'
     PREVIOUSLY_INDICATED = 'E'
-    FOREX = 'G'
+    FOREX_LIMIT = 'F'
+    FOREX_SWAP = 'G'
+    FOREX_PREVIOUSLY_QUOTED = 'H'
     FUNARI = 'I'
     MARKET_IF_TOUCHED = 'J'
-    MARKET_WITH_LEFTOVER_AS_LIMIT = 'K'
+    MARKET_WITH_LEFT_OVER_AS_LIMIT = 'K'
     PREVIOUS_FUND_VALUATION_POINT = 'L'
     NEXT_FUND_VALUATION_POINT = 'M'
     PEGGED = 'P'
+    COUNTER_ORDER_SELECTION = 'Q'
 
 
 class OrderCapacity(Enum):
@@ -2185,16 +2661,31 @@ class OrderCapacity(Enum):
     AGENT_FOR_OTHER_MEMBER = 'W'
 
 
+class OrderCategory(Enum):
+    ORDER = '1'
+    QUOTE = '2'
+    PRIVATELY_NEGOTIATED_TRADE = '3'
+    MULTILEG_ORDER = '4'
+    LINKED_ORDER = '5'
+    QUOTE_REQUEST = '6'
+    IMPLIED_ORDER = '7'
+    CROSS_ORDER = '8'
+
+
+class OrderHandlingInstSource(Enum):
+    NASD_OATS = '1'
+
+
 class OrderRestrictions(Enum):
     PROGRAM_TRADE = '1'
     INDEX_ARBITRAGE = '2'
     NON_INDEX_ARBITRAGE = '3'
     COMPETING_MARKET_MAKER = '4'
     ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY = '5'
-    ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY = '6'
+    ACTING_AS_MARKET_MAKER_OF_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SEUCIRTY = '6'
     FOREIGN_ENTITY = '7'
     EXTERNAL_MARKET_PARTICIPANT = '8'
-    EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE = '9'
+    EXTNERAL_INTER_CONNECTED_MARKET_LINKAGE = '9'
     RISKLESS_ARBITRAGE = 'A'
 
 
@@ -2221,24 +2712,24 @@ class OwnershipType(Enum):
 
 
 class PartyIDSource(Enum):
+    UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER = '6'
+    US_SOCIAL_SECURITY_NUMBER = '7'
+    US_EMPLOYER_OR_TAX_ID_NUMBER = '8'
+    AUSTRALIAN_BUSINESS_NUMBER = '9'
+    AUSTRALIAN_TAX_FILE_NUMBER = 'A'
+    KOREAN_INVESTOR_ID = '1'
+    TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII_FID = '2'
+    TAIWANESE_TRADING_ACCT = '3'
+    MALAYSIAN_CENTRAL_DEPOSITORY = '4'
+    CHINESE_INVESTOR_ID = '5'
+    DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT = 'I'
     BIC = 'B'
     GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = 'C'
-    PROPRIETARY_CUSTOM_CODE = 'D'
+    PROPRIETARY = 'D'
     ISO_COUNTRY_CODE = 'E'
     SETTLEMENT_ENTITY_LOCATION = 'F'
     MIC = 'G'
     CSD_PARTICIPANT_MEMBER_CODE = 'H'
-    KOREAN_INVESTOR_ID = '1'
-    TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII = '2'
-    TAIWANESE_TRADING_ACCOUNT = '3'
-    MALAYSIAN_CENTRAL_DEPOSITORY = '4'
-    CHINESE_B_SHARE = '5'
-    UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER = '6'
-    US_SOCIAL_SECURITY_NUMBER = '7'
-    US_EMPLOYER_IDENTIFICATION_NUMBER = '8'
-    AUSTRALIAN_BUSINESS_NUMBER = '9'
-    AUSTRALIAN_TAX_FILE_NUMBER = 'A'
-    DIRECTED_BROKER_THREE_CHARACTER_ACRONYM_AS_DEFINED_IN_ISITC_ETC_BEST_PRACTICE_GUIDELINES_DOCUMENT = 'I'
 
 
 class PartyRole(Enum):
@@ -2249,7 +2740,7 @@ class PartyRole(Enum):
     INVESTOR_ID = '5'
     INTRODUCING_FIRM = '6'
     ENTERING_FIRM = '7'
-    LOCATE_LENDING_FIRM = '8'
+    LOCATE = '8'
     FUND_MANAGER_CLIENT_ID = '9'
     SETTLEMENT_LOCATION = '10'
     ORDER_ORIGINATION_TRADER = '11'
@@ -2279,6 +2770,46 @@ class PartyRole(Enum):
     ENTERING_TRADER = '36'
     CONTRA_TRADER = '37'
     POSITION_ACCOUNT = '38'
+    CONTRA_INVESTOR_ID = '39'
+    TRANSFER_TO_FIRM = '40'
+    CONTRA_POSITION_ACCOUNT = '41'
+    CONTRA_EXCHANGE = '42'
+    INTERNAL_CARRY_ACCOUNT = '43'
+    ORDER_ENTRY_OPERATOR_ID = '44'
+    SECONDARY_ACCOUNT_NUMBER = '45'
+    FORIEGN_FIRM = '46'
+    THIRD_PARTY_ALLOCATION_FIRM = '47'
+    CLAIMING_ACCOUNT = '48'
+    ASSET_MANAGER = '49'
+    PLEDGOR_ACCOUNT = '50'
+    PLEDGEE_ACCOUNT = '51'
+    LARGE_TRADER_REPORTABLE_ACCOUNT = '52'
+    TRADER_MNEMONIC = '53'
+    SENDER_LOCATION = '54'
+    SESSION_ID = '55'
+    ACCEPTABLE_COUNTERPARTY = '56'
+    UNACCEPTABLE_COUNTERPARTY = '57'
+    ENTERING_UNIT = '58'
+    EXECUTING_UNIT = '59'
+    INTRODUCING_BROKER = '60'
+    QUOTE_ORIGINATOR = '61'
+    REPORT_ORIGINATOR = '62'
+    SYSTEMATIC_INTERNALISER = '63'
+    MULTILATERAL_TRADING_FACILITY = '64'
+    REGULATED_MARKET = '65'
+    MARKET_MAKER = '66'
+    INVESTMENT_FIRM = '67'
+    HOST_COMPETENT_AUTHORITY = '68'
+    HOME_COMPETENT_AUTHORITY = '69'
+    COMPETENT_AUTHORITY_OF_THE_MOST_RELEVANT_MARKET_IN_TERMS_OF_LIQUIDITY = '70'
+    COMPETENT_AUTHORITY_OF_THE_TRANSACTION = '71'
+    REPORTING_INTERMEDIARY = '72'
+    EXECUTION_VENUE = '73'
+    MARKET_DATA_ENTRY_ORIGINATOR = '74'
+    LOCATION_ID = '75'
+    DESK_ID = '76'
+    MARKET_DATA_MARKET = '77'
+    ALLOCATION_ENTITY = '78'
 
 
 class PartySubIDType(Enum):
@@ -2306,8 +2837,14 @@ class PartySubIDType(Enum):
     SECURITIES_ACCOUNT_NAME = '22'
     CASH_ACCOUNT_NAME = '23'
     DEPARTMENT = '24'
-    LOCATION = '25'
+    LOCATION_DESK = '25'
     POSITION_ACCOUNT_TYPE = '26'
+    SECURITY_LOCATE_ID = '27'
+    MARKET_MAKER = '28'
+    ELIGIBLE_COUNTERPARTY = '29'
+    PROFESSIONAL_CLIENT = '30'
+    LOCATION = '31'
+    EXECUTION_VENUE = '32'
 
 
 class PaymentMethod(Enum):
@@ -2317,7 +2854,7 @@ class PaymentMethod(Enum):
     CLEARSTREAM = '4'
     CHEQUE = '5'
     TELEGRAPHIC_TRANSFER = '6'
-    FEDWIRE = '7'
+    FED_WIRE = '7'
     DEBIT_CARD = '8'
     DIRECT_DEBIT = '9'
     DIRECT_CREDIT = '10'
@@ -2330,8 +2867,8 @@ class PaymentMethod(Enum):
 
 class PegLimitType(Enum):
     OR_BETTER = '0'
-    STRICT_LIMIT_IS_A_STRICT_LIMIT = '1'
-    OR_WORSE_FOR_A_BUY_THE_PEG_LIMIT_IS_A_MINIMUM_AND_FOR_A_SELL_THE_PEG_LIMIT_IS_A_MAXIMUM = '2'
+    STRICT = '1'
+    OR_WORSE = '2'
 
 
 class PegMoveType(Enum):
@@ -2346,33 +2883,47 @@ class PegOffsetType(Enum):
     PRICE_TIER = '3'
 
 
+class PegPriceType(Enum):
+    LAST_PEG = '1'
+    MID_PRICE_PEG = '2'
+    OPENING_PEG = '3'
+    MARKET_PEG = '4'
+    PRIMARY_PEG = '5'
+    FIXED_PEG_TO_LOCAL_BEST_BID_OR_OFFER_AT_TIME_OF_ORDER = '6'
+    PEG_TO_VWAP = '7'
+    TRAILING_STOP_PEG = '8'
+    PEG_TO_LIMIT_PRICE = '9'
+
+
 class PegRoundDirection(Enum):
-    MORE_AGGRESSIVE_ON_A_BUY_ORDER_ROUND_THE_PRICE_UP_ROUND_UP_TO_THE_NEAREST_TICK_ON_A_SELL_ROUND_DOWN_TO_THE_NEAREST_TICK = '1'
-    MORE_PASSIVE_ON_A_BUY_ORDER_ROUND_DOWN_TO_NEAREST_TICK_ON_A_SELL_ORDER_ROUND_UP_TO_NEAREST_TICK = '2'
+    MORE_AGGRESSIVE = '1'
+    MORE_PASSIVE = '2'
 
 
 class PegScope(Enum):
     LOCAL = '1'
     NATIONAL = '2'
     GLOBAL = '3'
-    NATIONAL_EXCLUDING_LOCAL = '4'
+    NATIONAL_XXCLUDING_LOCAL = '4'
 
 
 class PosAmtType(Enum):
+    CASH_AMOUNT = 'CASH'
+    CASH_RESIDUAL_AMOUNT = 'CRES'
     FINAL_MARK_TO_MARKET_AMOUNT = 'FMTM'
     INCREMENTAL_MARK_TO_MARKET_AMOUNT = 'IMTM'
-    TRADE_VARIATION_AMOUNT = 'TVAR'
-    START_OF_DAY_MARK_TO_MARKET_AMOUNT = 'SMTM'
     PREMIUM_AMOUNT = 'PREM'
-    CASH_RESIDUAL_AMOUNT = 'CRES'
-    CASH_AMOUNT = 'CASH'
+    START_OF_DAY_MARK_TO_MARKET_AMOUNT = 'SMTM'
+    TRADE_VARIATION_AMOUNT = 'TVAR'
     VALUE_ADJUSTED_AMOUNT = 'VADJ'
+    SETTLEMENT_VALUE = 'SETL'
 
 
 class PosMaintAction(Enum):
-    NEW_USED_TO_INCREMENT_THE_OVERALL_TRANSACTION_QUANTITY = '1'
-    REPLACE_USED_TO_OVERRIDE_THE_OVERALL_TRANSACTION_QUANTITY_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_THE_REFERENCE_ID = '2'
-    CANCEL_USED_TO_REMOVE_THE_OVERALL_TRANSACTION_OR_SPECIFIC_ADD_MESSAGES_BASED_ON_REFERENCE_ID = '3'
+    NEW = '1'
+    REPLACE = '2'
+    CANCEL = '3'
+    REVERSE = '4'
 
 
 class PosMaintResult(Enum):
@@ -2415,6 +2966,8 @@ class PosReqType(Enum):
     TRADES = '1'
     EXERCISES = '2'
     ASSIGNMENTS = '3'
+    SETTLEMENT_ACTIVITY = '4'
+    BACKOUT_MESSAGE = '5'
 
 
 class PosTransType(Enum):
@@ -2423,69 +2976,88 @@ class PosTransType(Enum):
     POSITION_ADJUSTMENT = '3'
     POSITION_CHANGE_SUBMISSION_MARGIN_DISPOSITION = '4'
     PLEDGE = '5'
+    LARGE_TRADER_SUBMISSION = '6'
 
 
 class PosType(Enum):
-    TRANSACTION_QUANTITY = 'TQ'
-    INTRA_SPREAD_QTY = 'IAS'
-    INTER_SPREAD_QTY = 'IES'
-    END_OF_DAY_QTY = 'FIN'
-    START_OF_DAY_QTY = 'SOD'
-    OPTION_EXERCISE_QTY = 'EX'
-    OPTION_ASSIGNMENT = 'AS'
-    TRANSACTION_FROM_EXERCISE = 'TX'
-    TRANSACTION_FROM_ASSIGNMENT = 'TA'
-    PIT_TRADE_QTY = 'PIT'
-    TRANSFER_TRADE_QTY = 'TRF'
-    ELECTRONIC_TRADE_QTY = 'ETR'
     ALLOCATION_TRADE_QTY = 'ALC'
-    ADJUSTMENT_QTY = 'PA'
+    OPTION_ASSIGNMENT = 'AS'
     AS_OF_TRADE_QTY = 'ASF'
     DELIVERY_QTY = 'DLV'
-    TOTAL_TRANSACTION_QTY = 'TOT'
-    CROSS_MARGIN_QTY = 'XM'
+    ELECTRONIC_TRADE_QTY = 'ETR'
+    OPTION_EXERCISE_QTY = 'EX'
+    END_OF_DAY_QTY = 'FIN'
+    INTRA_SPREAD_QTY = 'IAS'
+    INTER_SPREAD_QTY = 'IES'
+    ADJUSTMENT_QTY = 'PA'
+    PIT_TRADE_QTY = 'PIT'
+    START_OF_DAY_QTY = 'SOD'
     INTEGRAL_SPLIT = 'SPL'
+    TRANSACTION_FROM_ASSIGNMENT = 'TA'
+    TOTAL_TRANSACTION_QTY = 'TOT'
+    TRANSACTION_QUANTITY = 'TQ'
+    TRANSFER_TRADE_QTY = 'TRF'
+    TRANSACTION_FROM_EXERCISE = 'TX'
+    CROSS_MARGIN_QTY = 'XM'
+    RECEIVE_QUANTITY = 'RCV'
+    CORPORATE_ACTION_ADJUSTMENT = 'CAA'
+    DELIVERY_NOTICE_QTY = 'DN'
+    EXCHANGE_FOR_PHYSICAL_QTY = 'EP'
 
 
 class PositionEffect(Enum):
-    OPEN = 'O'
     CLOSE = 'C'
-    ROLLED = 'R'
     FIFO = 'F'
+    OPEN = 'O'
+    ROLLED = 'R'
 
 
 class PossDupFlag(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class PossResend(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class PreallocMethod(Enum):
     PRO_RATA = '0'
-    DO_NOT_PRO_RATA_DISCUSS_FIRST = '1'
+    DO_NOT_PRO_RATA = '1'
 
 
 class PreviouslyReported(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
+
+
+class PriceProtectionScope(Enum):
+    NONE = '0'
+    LOCAL = '1'
+    NATIONAL = '2'
+    GLOBAL = '3'
 
 
 class PriceType(Enum):
     PERCENTAGE = '1'
     PER_UNIT = '2'
     FIXED_AMOUNT = '3'
-    DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR = '4'
-    PREMIUM_PERCENTAGE_POINTS_OVER_PAR = '5'
+    DISCOUNT = '4'
+    PREMIUM = '5'
     SPREAD = '6'
     TED_PRICE = '7'
     TED_YIELD = '8'
     YIELD = '9'
     FIXED_CABINET_TRADE_PRICE = '10'
     VARIABLE_CABINET_TRADE_PRICE = '11'
+    PRODUCT_TICKS_IN_HALFS = '13'
+    PRODUCT_TICKS_IN_FOURTHS = '14'
+    PRODUCT_TICKS_IN_EIGHTS = '15'
+    PRODUCT_TICKS_IN_SIXTEENTHS = '16'
+    PRODUCT_TICKS_IN_THIRTY_SECONDS = '17'
+    PRODUCT_TICKS_IN_SIXTY_FORTHS = '18'
+    PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS = '19'
 
 
 class PriorityIndicator(Enum):
@@ -2520,14 +3092,14 @@ class Product(Enum):
 
 
 class ProgRptReqs(Enum):
-    BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = '1'
-    SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = '2'
+    BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST = '1'
+    SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = '2'
     REAL_TIME_EXECUTION_REPORTS = '3'
 
 
 class PublishTrdIndicator(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class PutOrCall(Enum):
@@ -2538,6 +3110,7 @@ class PutOrCall(Enum):
 class QtyType(Enum):
     UNITS = '0'
     CONTRACTS = '1'
+    UNITS_OF_MEASURE_PER_TIME_UNIT = '2'
 
 
 class QuoteCancelType(Enum):
@@ -2545,11 +3118,12 @@ class QuoteCancelType(Enum):
     CANCEL_FOR_SECURITY_TYPE = '2'
     CANCEL_FOR_UNDERLYING_SYMBOL = '3'
     CANCEL_ALL_QUOTES = '4'
+    CANCEL_QUOTE_SPECIFIED_IN_QUOTEID = '5'
 
 
 class QuoteCondition(Enum):
-    OPEN = 'A'
-    CLOSED = 'B'
+    OPEN_ACTIVE = 'A'
+    CLOSED_INACTIVE = 'B'
     EXCHANGE_BEST = 'C'
     CONSOLIDATED_BEST = 'D'
     LOCKED = 'E'
@@ -2557,15 +3131,61 @@ class QuoteCondition(Enum):
     DEPTH = 'G'
     FAST_TRADING = 'H'
     NON_FIRM = 'I'
+    MANUAL_SLOW_QUOTE = 'L'
+    OUTRIGHT_PRICE = 'J'
+    IMPLIED_PRICE = 'K'
+    DEPTH_ON_OFFER = 'M'
+    DEPTH_ON_BID = 'N'
+    CLOSING = 'O'
+    NEWS_DISSEMINATION = 'P'
+    TRADING_RANGE = 'Q'
+    ORDER_INFLUX = 'R'
+    DUE_TO_RELATED = 'S'
+    NEWS_PENDING = 'T'
+    ADDITIONAL_INFO = 'U'
+    ADDITIONAL_INFO_DUE_TO_RELATED = 'V'
+    RESUME = 'W'
+    VIEW_OF_COMMON = 'X'
+    VOLUME_ALERT = 'Y'
+    ORDER_IMBALANCE = 'Z'
+    EQUIPMENT_CHANGEOVER = 'a'
+    NO_OPEN = 'b'
+    REGULAR_ETH = 'c'
+    AUTOMATIC_EXECUTION = 'd'
+    AUTOMATIC_EXECUTION_ETH = 'e'
+    FAST_MARKET_ETH = 'f '
+    INACTIVE_ETH = 'g'
+    ROTATION = 'h'
+    ROTATION_ETH = 'i'
+    HALT = 'j'
+    HALT_ETH = 'k'
+    DUE_TO_NEWS_DISSEMINATION = 'l'
+    DUE_TO_NEWS_PENDING = 'm'
+    TRADING_RESUME = 'n'
+    OUT_OF_SEQUENCE = 'o'
+    BID_SPECIALIST = 'p'
+    OFFER_SPECIALIST = 'q'
+    BID_OFFER_SPECIALIST = 'r'
+    END_OF_DAY_SAM = 's'
+    FORBIDDEN_SAM = 't'
+    FROZEN_SAM = 'u'
+    PREOPENING_SAM = 'v'
+    OPENING_SAM = 'w'
+    OPEN_SAM = 'x'
+    SURVEILLANCE_SAM = 'y'
+    SUSPENDED_SAM = 'z'
+    RESERVED_SAM = '0'
+    NO_ACTIVE_SAM = '1'
+    RESTRICTED = '2'
 
 
 class QuotePriceType(Enum):
     PERCENT = '1'
     PER_SHARE = '2'
     FIXED_AMOUNT = '3'
-    DISCOUNT_PERCENTAGE_POINTS_BELOW_PAR = '4'
-    PREMIUM_PERCENTAGE_POINTS_OVER_PAR = '5'
-    BASIS_POINTS_RELATIVE_TO_BENCHMARK = '6'
+    DISCOUNT = '4'
+    PREMIUM = '5'
+    SPREAD = '6'
     TED_PRICE = '7'
     TED_YIELD = '8'
     YIELD_SPREAD = '9'
@@ -2596,6 +3216,7 @@ class QuoteRequestRejectReason(Enum):
     NO_MARKET_FOR_INSTRUMENT = '8'
     NO_INVENTORY = '9'
     PASS = '10'
+    INSUFFICIENT_CREDIT = '11'
     OTHER = '99'
 
 
@@ -2621,7 +3242,7 @@ class QuoteResponseLevel(Enum):
 
 class QuoteStatus(Enum):
     ACCEPTED = '0'
-    CANCELED_FOR_SYMBOL = '1'
+    CANCEL_FOR_SYMBOL = '1'
     CANCELED_FOR_SECURITY_TYPE = '2'
     CANCELED_FOR_UNDERLYING = '3'
     CANCELED_ALL = '4'
@@ -2645,20 +3266,27 @@ class QuoteType(Enum):
     COUNTER = '3'
 
 
+class RefOrderIDSource(Enum):
+    SECONDARYORDEID = '0'
+    ORDEID = '1'
+    MENTRYID = '2'
+    QUOTENTRYID = '3'
+
+
 class RegistRejReasonCode(Enum):
     INVALID_UNACCEPTABLE_ACCOUNT_TYPE = '1'
     INVALID_UNACCEPTABLE_TAX_EXEMPT_TYPE = '2'
     INVALID_UNACCEPTABLE_OWNERSHIP_TYPE = '3'
-    INVALID_UNACCEPTABLE_NO_REG_DETLS = '4'
+    INVALID_UNACCEPTABLE_NO_REG_DETAILS = '4'
     INVALID_UNACCEPTABLE_REG_SEQ_NO = '5'
-    INVALID_UNACCEPTABLE_REG_DTLS = '6'
-    INVALID_UNACCEPTABLE_MAILING_DTLS = '7'
-    INVALID_UNACCEPTABLE_MAILING_INST = '8'
+    INVALID_UNACCEPTABLE_REG_DETAILS = '6'
+    INVALID_UNACCEPTABLE_MAILING_DETAILS = '7'
+    INVALID_UNACCEPTABLE_MAILING_INSTRUCTIONS = '8'
     INVALID_UNACCEPTABLE_INVESTOR_ID = '9'
-    INVALID_UNACCEPTABLE_INVESTOR_ID_SOURCE = '10'
+    INVALID_UNACEEPTABLE_INVESTOR_ID_SOURCE = '10'
     INVALID_UNACCEPTABLE_DATE_OF_BIRTH = '11'
     INVALID_UNACCEPTABLE_INVESTOR_COUNTRY_OF_RESIDENCE = '12'
-    INVALID_UNACCEPTABLE_NODISTRIBINSTNS = '13'
+    INVALID_UNACCEPTABLE_NO_DISTRIB_INSTNS = '13'
     INVALID_UNACCEPTABLE_DISTRIB_PERCENTAGE = '14'
     INVALID_UNACCEPTABLE_DISTRIB_PAYMENT_METHOD = '15'
     INVALID_UNACCEPTABLE_CASH_DISTRIB_AGENT_ACCT_NAME = '16'
@@ -2671,28 +3299,28 @@ class RegistStatus(Enum):
     ACCEPTED = 'A'
     REJECTED = 'R'
     HELD = 'H'
-    REMINDER_IE_REGISTRATION_INSTRUCTIONS_ARE_STILL_OUTSTANDING = 'N'
+    REMINDER = 'N'
 
 
 class RegistTransType(Enum):
     NEW = '0'
-    REPLACE = '1'
     CANCEL = '2'
+    REPLACE = '1'
 
 
 class ReportToExch(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class ResetSeqNumFlag(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class ResponseTransportType(Enum):
-    INBAND_TRANSPORT_THE_REQUEST_WAS_SENT_OVER = '0'
-    OUT_OF_BAND_PRE_ARRANGED_OUT_OF_BAND_DELIVERY_MECHANISM = '1'
+    INBAND = '0'
+    OUT_OF_BAND = '1'
 
 
 class RoundingDirection(Enum):
@@ -2709,7 +3337,7 @@ class RoutingType(Enum):
 
 
 class Scope(Enum):
-    LOCAL = '1'
+    LOCAL_MARKET = '1'
     NATIONAL = '2'
     GLOBAL = '3'
 
@@ -2733,7 +3361,9 @@ class SecurityIDSource(Enum):
     COMMON = 'G'
     CLEARING_HOUSE = 'H'
     ISDA_FPML_PRODUCT_SPECIFICATION = 'I'
-    OPTIONS_PRICE_REPORTING_AUTHORITY = 'J'
+    OPTION_PRICE_REPORTING_AUTHORITY = 'J'
+    ISDA_FPML_PRODUCT_URL = 'K'
+    LETTER_OF_CREDIT = 'L'
 
 
 class SecurityListRequestType(Enum):
@@ -2763,15 +3393,22 @@ class SecurityRequestType(Enum):
 class SecurityResponseType(Enum):
     ACCEPT_SECURITY_PROPOSAL_AS_IS = '1'
     ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE = '2'
+    LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST = '3'
+    LIST_OF_SECURITIES_RETURNED_PER_REQUEST = '4'
     REJECT_SECURITY_PROPOSAL = '5'
-    CAN_NOT_MATCH_SELECTION_CRITERIA = '6'
+    CANNOT_MATCH_SELECTION_CRITERIA = '6'
+
+
+class SecurityStatus(Enum):
+    ACTIVE = '1'
+    INACTIVE = '2'
 
 
 class SecurityTradingStatus(Enum):
     OPENING_DELAY = '1'
     TRADING_HALT = '2'
     RESUME = '3'
-    NO_OPEN_NO_RESUME = '4'
+    NO_OPEN = '4'
     PRICE_INDICATION = '5'
     TRADING_RANGE_INDICATION = '6'
     MARKET_IMBALANCE_BUY = '7'
@@ -2795,6 +3432,8 @@ class SecurityTradingStatus(Enum):
 class SecurityType(Enum):
     FUTURE = 'FUT'
     OPTION = 'OPT'
+    US_TREASURY_NOTE_UST = 'UST'
+    US_TREASURY_BILL_USTB = 'USTB'
     EURO_SUPRANATIONAL_COUPONS = 'EUSUPRA'
     FEDERAL_AGENCY_COUPON = 'FAC'
     FEDERAL_AGENCY_DISCOUNT_NOTE = 'FADN'
@@ -2811,6 +3450,11 @@ class SecurityType(Enum):
     FOREIGN_EXCHANGE_CONTRACT = 'FOR'
     COMMON_STOCK = 'CS'
     PREFERRED_STOCK = 'PS'
+    REPURCHASE = 'REPO'
+    FORWARD = 'FORWARD'
+    BUY_SELLBACK = 'BUYSELL'
+    SECURITIES_LOAN = 'SECLOAN'
+    SECURITIES_PLEDGE = 'SECPLEDGE'
     BRADY_BOND = 'BRADY'
     EURO_SOVEREIGNS = 'EUSOV'
     US_TREASURY_BOND = 'TBOND'
@@ -2818,15 +3462,8 @@ class SecurityType(Enum):
     TREASURY_INFLATION_PROTECTED_SECURITIES = 'TIPS'
     PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE = 'TCAL'
     PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE = 'TPRN'
-    US_TREASURY_NOTE_UST = 'UST'
-    US_TREASURY_BILL_USTB = 'USTB'
     US_TREASURY_NOTE_TNOTE = 'TNOTE'
     US_TREASURY_BILL_TBILL = 'TBILL'
-    REPURCHASE = 'REPO'
-    FORWARD = 'FORWARD'
-    BUY_SELLBACK = 'BUYSELL'
-    SECURITIES_LOAN = 'SECLOAN'
-    SECURITIES_PLEDGE = 'SECPLEDGE'
     TERM_LOAN = 'TERM'
     REVOLVER_LOAN = 'RVLV'
     REVOLVER_TERM_LOAN = 'RVLVTRM'
@@ -2869,7 +3506,7 @@ class SecurityType(Enum):
     MISCELLANEOUS_PASS_THROUGH = 'MPT'
     PFANDBRIEFE = 'PFAND'
     TO_BE_ANNOUNCED = 'TBA'
-    OTHER_ANTICIPATION_NOTES_BAN_GAN_ETC = 'AN'
+    OTHER_ANTICIPATION_NOTES = 'AN'
     CERTIFICATE_OF_OBLIGATION = 'COFO'
     CERTIFICATE_OF_PARTICIPATION = 'COFP'
     GENERAL_OBLIGATION_BONDS = 'GO'
@@ -2886,8 +3523,18 @@ class SecurityType(Enum):
     VARIABLE_RATE_DEMAND_NOTE = 'VRDN'
     WARRANT = 'WAR'
     MUTUAL_FUND = 'MF'
-    MULTI_LEG_INSTRUMENT = 'MLEG'
+    MULTILEG_INSTRUMENT = 'MLEG'
     NO_SECURITY_TYPE = 'NONE'
+    OPTIONS_ON_FUTURES = 'OOF'
+    OPTIONS_ON_PHYSICAL = 'OOP'
+    WILDCARD_ENTRY = 'WLD'
+    CASH = 'CASH'
+
+
+class SecurityUpdateAction(Enum):
+    ADD = 'A'
+    DELETE = 'D'
+    MODIFY = 'M'
 
 
 class SessionRejectReason(Enum):
@@ -2925,7 +3572,10 @@ class SettlDeliveryType(Enum):
 
 
 class SettlInstMode(Enum):
+    DEFAULT = '0'
     STANDING_INSTRUCTIONS_PROVIDED = '1'
+    SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING = '2'
+    SPECIFIC_ALLOCATION_ACCOUNT_STANDING = '3'
     SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT = '4'
     REQUEST_REJECT = '5'
 
@@ -2959,6 +3609,7 @@ class SettlSessID(Enum):
     INTRADAY = 'ITD'
     REGULAR_TRADING_HOURS = 'RTH'
     ELECTRONIC_TRADING_HOURS = 'ETH'
+    END_OF_DAY = 'EOD'
 
 
 class SettlType(Enum):
@@ -2972,6 +3623,8 @@ class SettlType(Enum):
     WHEN_AND_IF_ISSUED = '7'
     SELLERS_OPTION = '8'
     T_PLUS_5 = '9'
+    BROKEN_DATE = 'B'
+    FX_SPOT_NEXT_SETTLEMENT = 'C'
 
 
 class ShortSaleReason(Enum):
@@ -2979,7 +3632,7 @@ class ShortSaleReason(Enum):
     DEALER_SOLD_SHORT_EXEMPT = '1'
     SELLING_CUSTOMER_SOLD_SHORT = '2'
     SELLING_CUSTOMER_SOLD_SHORT_EXEMPT = '3'
-    QUALIFED_SERVICE_REPRESENTATIVE = '4'
+    QUALIFIED_SERVICE_REPRESENTATIVE = '4'
     QSR_OR_AGU_CONTRA_SIDE_SOLD_SHORT_EXEMPT = '5'
 
 
@@ -2993,7 +3646,7 @@ class Side(Enum):
     UNDISCLOSED = '7'
     CROSS = '8'
     CROSS_SHORT = '9'
-    CROSS_SHORT_EXEMPT = 'A'
+    CROSS_SHORT_EXXMPT = 'A'
     AS_DEFINED = 'B'
     OPPOSITE = 'C'
     SUBSCRIBE = 'D'
@@ -3004,18 +3657,18 @@ class Side(Enum):
 
 class SideMultiLegReportingType(Enum):
     SINGLE_SECURITY = '1'
-    INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = '2'
-    MULTI_LEG_SECURITY = '3'
+    INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = '2'
+    MULTILEG_SECURITY = '3'
 
 
 class SideValueInd(Enum):
-    SIDEVALUE1 = '1'
-    SIDEVALUE_2 = '2'
+    SIDE_VALUE_1 = '1'
+    SIDE_VALUE_2 = '2'
 
 
 class SolicitedFlag(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class StandInstDbType(Enum):
@@ -3028,16 +3681,16 @@ class StandInstDbType(Enum):
 
 class StatusValue(Enum):
     CONNECTED = '1'
-    NOT_CONNECTED_DOWN_EXPECTED_UP = '2'
-    NOT_CONNECTED_DOWN_EXPECTED_DOWN = '3'
+    NOT_CONNECTED_2 = '2'
+    NOT_CONNECTED_3 = '3'
     IN_PROCESS = '4'
 
 
 class StipulationType(Enum):
-    AMT = 'AMT'
+    ALTERNATIVE_MINIMUM_TAX = 'AMT'
     AUTO_REINVESTMENT_AT_RATE_OR_BETTER = 'AUTOREINV'
     BANK_QUALIFIED = 'BANKQUAL'
-    BARGAIN_CONDITIONS_SEE = 'BGNCON'
+    BARGAIN_CONDITIONS = 'BGNCON'
     COUPON_RANGE = 'COUPON'
     ISO_CURRENCY_CODE = 'CURRENCY'
     CUSTOM_START_END_DATE = 'CUSTOMDATE'
@@ -3053,14 +3706,14 @@ class StipulationType(Enum):
     MATURITY_YEAR_AND_MONTH = 'MAT'
     MATURITY_RANGE = 'MATURITY'
     MAXIMUM_SUBSTITUTIONS = 'MAXSUBS'
-    MINIMUM_QUANTITY = 'MINQTY'
-    MINIMUM_INCREMENT = 'MININCR'
     MINIMUM_DENOMINATION = 'MINDNOM'
+    MINIMUM_INCREMENT = 'MININCR'
+    MINIMUM_QUANTITY = 'MINQTY'
     PAYMENT_FREQUENCY_CALENDAR = 'PAYFREQ'
     NUMBER_OF_PIECES = 'PIECES'
     POOLS_MAXIMUM = 'PMAX'
-    POOLS_PER_MILLION = 'PPM'
     POOLS_PER_LOT = 'PPL'
+    POOLS_PER_MILLION = 'PPM'
     POOLS_PER_TRADE = 'PPT'
     PRICE_RANGE = 'PRICE'
     PRICING_FREQUENCY = 'PRICEFREQ'
@@ -3069,27 +3722,69 @@ class StipulationType(Enum):
     PURPOSE = 'PURPOSE'
     BENCHMARK_PRICE_SOURCE = 'PXSOURCE'
     RATING_SOURCE_AND_RANGE = 'RATING'
-    TYPE_OF_REDEMPTION_VALUES_ARE_NONCALLABLE_CALLABLE_PREFUNDED_ESCROWEDTOMATURITY_PUTABLE_CONVERTIBLE = 'REDEMPTION'
+    TYPE_OF_REDEMPTION = 'REDEMPTION'
     RESTRICTED = 'RESTRICTED'
     MARKET_SECTOR = 'SECTOR'
-    SECURITYTYPE_INCLUDED_OR_EXCLUDED = 'SECTYPE'
+    SECURITY_TYPE_INCLUDED_OR_EXCLUDED = 'SECTYPE'
     STRUCTURE = 'STRUCT'
     SUBSTITUTIONS_FREQUENCY = 'SUBSFREQ'
     SUBSTITUTIONS_LEFT = 'SUBSLEFT'
     FREEFORM_TEXT = 'TEXT'
     TRADE_VARIANCE = 'TRDVAR'
-    WEIGHTED_AVERAGE_COUPONVALUE_IN_PERCENT = 'WAC'
-    WEIGHTED_AVERAGE_LIFE_COUPON_VALUE_IN_PERCENT = 'WAL'
-    WEIGHTED_AVERAGE_LOAN_AGE_VALUE_IN_MONTHS = 'WALA'
-    WEIGHTED_AVERAGE_MATURITY_VALUE_IN_MONTHS = 'WAM'
+    WEIGHTED_AVERAGE_COUPON = 'WAC'
+    WEIGHTED_AVERAGE_LIFE_COUPON = 'WAL'
+    WEIGHTED_AVERAGE_LOAN_AGE = 'WALA'
+    WEIGHTED_AVERAGE_MATURITY = 'WAM'
     WHOLE_POOL = 'WHOLE'
     YIELD_RANGE = 'YIELD'
+    ABSOLUTE_PREPAYMENT_SPEED = 'ABS'
+    CONSTANT_PREPAYMENT_PENALTY = 'CPP'
+    CONSTANT_PREPAYMENT_RATE = 'CPR'
+    CONSTANT_PREPAYMENT_YIELD = 'CPY'
+    FINAL_CPR_OF_HOME_EQUITY_PREPAYMENT_CURVE = 'HEP'
+    PERCENT_OF_MANUFACTURED_HOUSING_PREPAYMENT_CURVE = 'MHP'
+    MONTHLY_PREPAYMENT_RATE = 'MPR'
+    PERCENT_OF_PROSPECTUS_PREPAYMENT_CURVE = 'PPC'
+    PERCENT_OF_BMA_PREPAYMENT_CURVE = 'PSA'
+    SINGLE_MONTHLY_MORTALITY = 'SMM'
+
+
+class StrategyParameterType(Enum):
+    INT = '1'
+    LENGTH = '2'
+    NUMINGROUP = '3'
+    SEQNUM = '4'
+    TAGNUM = '5'
+    FLOAT = '6'
+    QTY = '7'
+    PRICE = '8'
+    PRICEOFFSET = '9'
+    AMT = '10'
+    PERCENTAGE = '11'
+    CHAR = '12'
+    BOOLEAN = '13'
+    STRING = '14'
+    MULTIPLECHARVALUE = '15'
+    CURRENCY = '16'
+    EXCHANGE = '17'
+    MONTHYEAR = '18'
+    UTCTIMESTAMP = '19'
+    UTCTIMEONLY = '20'
+    LOCALMKTTIME = '21'
+    UTCDATE = '22'
+    DATA = '23'
+    MULTIPLESTRINGVALUE = '24'
 
 
 class SubscriptionRequestType(Enum):
     SNAPSHOT = '0'
     SNAPSHOT_PLUS_UPDATES = '1'
     DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST = '2'
+
+
+class SymbolSfx(Enum):
+    EUCP_WITH_LUMP_SUM_INTEREST_RATHER_THAN_DISCOUNT_PRICE = 'CD'
+    WHEN_ISSUED_FOR_A_SECURITY_TO_BE_REISSUED_UNDER_AN_OLD_CUSIP_OR_ISIN = 'WI'
 
 
 class TargetStrategy(Enum):
@@ -3108,18 +3803,18 @@ class TaxAdvantageType(Enum):
     CURRENT_YEAR_PAYMENT = '6'
     PRIOR_YEAR_PAYMENT = '7'
     ASSET_TRANSFER = '8'
-    EMPLOYEE = '9'
-    EMPLOYEE_CURRENT_YEAR = '10'
-    EMPLOYER = '11'
-    EMPLOYER_CURRENT_YEAR = '12'
+    EMPLOYEE_9 = '9'
+    EMPLOYEE_10 = '10'
+    EMPLOYER_11 = '11'
+    EMPLOYER_12 = '12'
     NON_FUND_PROTOTYPE_IRA = '13'
     NON_FUND_QUALIFIED_PLAN = '14'
     DEFINED_CONTRIBUTION_PLAN = '15'
-    INDIVIDUAL_RETIREMENT_ACCOUNT = '16'
-    INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER = '17'
+    INDIVIDUAL_RETIREMENT_ACCOUNT_16 = '16'
+    INDIVIDUAL_RETIREMENT_ACCOUNT_17 = '17'
     KEOGH = '18'
     PROFIT_SHARING_PLAN = '19'
-    FOUR_HUNDRED_AND_ONE_K = '20'
+    FOUR_HUNDRED_AND_ONE = '20'
     SELF_DIRECTED_IRA = '21'
     FOUR_HUNDRED_AND_THREE = '22'
     FOUR_HUNDRED_AND_FIFTY_SEVEN = '23'
@@ -3129,6 +3824,7 @@ class TaxAdvantageType(Enum):
     ROTH_CONVERSION_IRA_27 = '27'
     EDUCATION_IRA_28 = '28'
     EDUCATION_IRA_29 = '29'
+    OTHER = '999'
 
 
 class TerminationType(Enum):
@@ -3139,8 +3835,8 @@ class TerminationType(Enum):
 
 
 class TestMessageIndicator(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class TickDirection(Enum):
@@ -3159,6 +3855,16 @@ class TimeInForce(Enum):
     GOOD_TILL_CROSSING = '5'
     GOOD_TILL_DATE = '6'
     AT_THE_CLOSE = '7'
+
+
+class TimeUnit(Enum):
+    HOUR = 'H'
+    MINUTE = 'Min'
+    SECOND = 'S'
+    DAY = 'D'
+    WEEK = 'Wk'
+    MONTH = 'Mo'
+    YEAR = 'Yr'
 
 
 class TradSesMethod(Enum):
@@ -3192,6 +3898,9 @@ class TradeAllocIndicator(Enum):
     ALLOCATION_NOT_REQUIRED = '0'
     ALLOCATION_REQUIRED = '1'
     USE_ALLOCATION_PROVIDED_WITH_THE_TRADE = '2'
+    ALLOCATION_GIVE_UP_EXECUTOR = '3'
+    ALLOCATION_FROM_EXECUTOR = '4'
+    ALLOCATION_TO_CLAIM_ACCOUNT = '5'
 
 
 class TradeCondition(Enum):
@@ -3199,7 +3908,7 @@ class TradeCondition(Enum):
     AVERAGE_PRICE_TRADE = 'B'
     CASH_TRADE = 'C'
     NEXT_DAY = 'D'
-    OPENING = 'E'
+    OPENING_REOPENING_TRADE_DETAIL = 'E'
     INTRADAY_TRADE_DETAIL = 'F'
     RULE_127_TRADE = 'G'
     RULE_155_TRADE = 'H'
@@ -3212,26 +3921,106 @@ class TradeCondition(Enum):
     IMBALANCE_MORE_BUYERS = 'P'
     IMBALANCE_MORE_SELLERS = 'Q'
     OPENING_PRICE = 'R'
+    BARGAIN_CONDITION = 'S'
+    CONVERTED_PRICE_INDICATOR = 'T'
+    EXCHANGE_LAST = 'U'
+    FINAL_PRICE_OF_SESSION = 'V'
+    EX_PIT = 'W'
+    CROSSED_X = 'X'
+    TRADES_RESULTING_FROM_MANUAL_SLOW_QUOTE = 'Y'
+    TRADES_RESULTING_FROM_INTERMARKET_SWEEP = 'Z'
+    VOLUME_ONLY = 'a'
+    DIRECT_PLUS = 'b'
+    ACQUISITION = 'c'
+    BUNCHED = 'd'
+    DISTRIBUTION = 'e'
+    BUNCHED_SALE = 'f'
+    SPLIT_TRADE = 'g'
+    CANCEL_STOPPED = 'h'
+    CANCEL_ETH = 'i'
+    CANCEL_STOPPED_ETH = 'j'
+    OUT_OF_SEQUENCE_ETH = 'k'
+    CANCEL_LAST_ETH = 'l'
+    SOLD_LAST_SALE_ETH = 'm'
+    CANCEL_LAST = 'n'
+    SOLD_LAST_SALE = 'o'
+    CANCEL_OPEN = 'p'
+    CANCEL_OPEN_ETH = 'q'
+    OPENED_SALE_ETH = 'r'
+    CANCEL_ONLY = 's'
+    CANCEL_ONLY_ETH = 't'
+    LATE_OPEN_ETH = 'u'
+    AUTO_EXECUTION_ETH = 'v'
+    REOPEN = 'w'
+    REOPEN_ETH = 'x'
+    ADJUSTED = 'y'
+    ADJUSTED_ETH = 'z'
+    SPREAD = 'AA'
+    SPREAD_ETH = 'AB'
+    STRADDLE = 'AC'
+    STRADDLE_ETH = 'AD'
+    STOPPED = 'AE'
+    STOPPED_ETH = 'AF'
+    REGULAR_ETH = 'AG'
+    COMBO = 'AH'
+    COMBO_ETH = 'AI'
+    OFFICIAL_CLOSING_PRICE = 'AJ'
+    PRIOR_REFERENCE_PRICE = 'AK'
+    CANCEL = '0'
+    STOPPED_SOLD_LAST = 'AL'
+    STOPPED_OUT_OF_SEQUENCE = 'AM'
+    OFFICAL_CLOSING_PRICE = 'AN'
+    CROSSED_AO = 'AO'
+    FAST_MARKET = 'AP'
+    AUTOMATIC_EXECUTION = 'AQ'
+    FORM_T = 'AR'
+    BASKET_INDEX = 'AS'
+    BURST_BASKET = 'AT'
+
+
+class TradeHandlingInstr(Enum):
+    TRADE_CONFIRMATION = '0'
+    TWO_PARTY_REPORT = '1'
+    ONE_PARTY_REPORT_FOR_MATCHING = '2'
+    ONE_PARTY_REPORT_FOR_PASS_THROUGH = '3'
+    AUTOMATED_FLOOR_ORDER_ROUTING = '4'
 
 
 class TradeReportRejectReason(Enum):
     SUCCESSFUL = '0'
-    INVALID_PARTY_INFORMATION = '1'
+    INVALID_PARTY_ONFORMATION = '1'
     UNKNOWN_INSTRUMENT = '2'
     UNAUTHORIZED_TO_REPORT_TRADES = '3'
     INVALID_TRADE_TYPE = '4'
     OTHER = '99'
 
 
+class TradeReportTransType(Enum):
+    NEW = '0'
+    CANCEL = '1'
+    REPLACE = '2'
+    RELEASE = '3'
+    REVERSE = '4'
+    CANCEL_DUE_TO_BACK_OUT_OF_TRADE = '5'
+
+
 class TradeReportType(Enum):
     SUBMIT = '0'
-    ALLEGED = '1'
+    ALLEGED_1 = '1'
     ACCEPT = '2'
     DECLINE = '3'
     ADDENDUM = '4'
     NO_WAS = '5'
     TRADE_REPORT_CANCEL = '6'
-    LOCKED_IN_TRADE_BREAK = '7'
+    SEVEN = '7'
+    DEFAULTED = '8'
+    INVALID_CMTA = '9'
+    PENDED = '10'
+    ALLEGED_NEW = '11'
+    ALLEGED_ADDENDUM = '12'
+    ALLEGED_NO_WAS = '13'
+    ALLEGED_TRADE_REPORT_CANCEL = '14'
+    ALLEGED_15 = '15'
 
 
 class TradeRequestResult(Enum):
@@ -3242,7 +4031,7 @@ class TradeRequestResult(Enum):
     INVALID_TRANSPORT_TYPE_REQUESTED = '4'
     INVALID_DESTINATION_REQUESTED = '5'
     TRADEREQUESTTYPE_NOT_SUPPORTED = '8'
-    UNAUTHORIZED_FOR_TRADE_CAPTURE_REPORT_REQUEST = '9'
+    UNAUTHORIZED_ROR_TRADE_CAPTURE_REPORT_REQUEST = '9'
     OTHER = '99'
 
 
@@ -3261,8 +4050,8 @@ class TradeRequestType(Enum):
 
 
 class TradedFlatSwitch(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class TrdRegTimestampType(Enum):
@@ -3271,16 +4060,52 @@ class TrdRegTimestampType(Enum):
     TIME_OUT = '3'
     BROKER_RECEIPT = '4'
     BROKER_EXECUTION = '5'
+    DESK_RECEIPT = '6'
 
 
 class TrdRptStatus(Enum):
     ACCEPTED = '0'
     REJECTED = '1'
+    ACCEPTED_WITH_ERRORS = '3'
+
+
+class TrdSubType(Enum):
+    CMTA = '0'
+    INTERNAL_TRANSFER_OR_ADJUSTMENT = '1'
+    EXTERNAL_TRANSFER_OR_TRANSFER_OF_ACCOUNT = '2'
+    REJECT_FOR_SUBMITTING_SIDE = '3'
+    ADVISORY_FOR_CONTRA_SIDE = '4'
+    OFFSET_DUE_TO_AN_ALLOCATION = '5'
+    ONSET_DUT_TO_AN_ALLOCATION = '6'
+    DIFFERENTIAL_SPREAD = '7'
+    IMPLIED_SPREAD_LEG_EXECUTED_AGAINST_AN_OUTRIGHT = '8'
+    TRANSACTION_FROM_EXERCISE = '9'
+    TRANSACTION_FROM_ASSIGNMENT = '10'
+    ACATS = '11'
+    AI = '14'
+    B = '15'
+    K = '16'
+    LC = '17'
+    M = '18'
+    N = '19'
+    NM = '20'
+    NR = '21'
+    P = '22'
+    PA = '23'
+    PC = '24'
+    PN = '25'
+    R = '26'
+    RO = '27'
+    RT = '28'
+    SW = '29'
+    T = '30'
+    WN = '31'
+    WT = '32'
 
 
 class TrdType(Enum):
     REGULAR_TRADE = '0'
-    BLOCK_TRADE = '1'
+    BLOCK_TRADE_1 = '1'
     EFP = '2'
     TRANSFER = '3'
     LATE_TRADE = '4'
@@ -3290,11 +4115,117 @@ class TrdType(Enum):
     LATE_BUNCHED_TRADE = '8'
     PRIOR_REFERENCE_PRICE_TRADE = '9'
     AFTER_HOURS_TRADE = '10'
+    EXCHANGE_FOR_RISK = '11'
+    EXCHANGE_FOR_SWAP = '12'
+    EXCHANGE_OF_FUTURES_FOR = '13'
+    EXCHANGE_OF_OPTIONS_FOR_OPTIONS = '14'
+    TRADING_AT_SETTLEMENT = '15'
+    ALL_OR_NONE = '16'
+    FUTURES_LARGE_ORDER_EXECUTION = '17'
+    EXCHANGE_OF_FUTURES_FOR_FUTURES = '18'
+    OPTION_INTERIM_TRADE = '19'
+    OPTION_CABINET_TRADE = '20'
+    PRIVATELY_NEGOTIATED_TRADES = '22'
+    SUBSTITUTION_OF_FUTURES_FOR_FORWARDS = '23'
+    ERROR_TRADE = '24'
+    SPECIAL_CUM_DIVIDEND = '25'
+    SPECIAL_EX_DIVIDEND = '26'
+    SPECIAL_CUM_COUPON = '27'
+    SPECIAL_EX_COUPON = '28'
+    CASH_SETTLEMENT = '29'
+    SPECIAL_PRICE = '30'
+    GUARANTEED_DELIVERY = '31'
+    SPECIAL_CUM_RIGHTS = '32'
+    SPECIAL_EX_RIGHTS = '33'
+    SPECIAL_CUM_CAPITAL_REPAYMENTS = '34'
+    SPECIAL_EX_CAPITAL_REPAYMENTS = '35'
+    SPECIAL_CUM_BONUS = '36'
+    SPECIAL_EX_BONUS = '37'
+    BLOCK_TRADE_38 = '38'
+    WORKED_PRINCIPAL_TRADE = '39'
+    BLOCK_TRADES = '40'
+    NAME_CHANGE = '41'
+    PORTFOLIO_TRANSFER = '42'
+    PROROGATION_BUY = '43'
+    PROROGATION_SELL = '44'
+    OPTION_EXERCISE = '45'
+    DELTA_NEUTRAL_TRANSACTION = '46'
+    FINANCING_TRANSACTION = '47'
+
+
+class TriggerAction(Enum):
+    ACTIVATE = '1'
+    MODIFY = '2'
+    CANCEL = '3'
+
+
+class TriggerOrderType(Enum):
+    MARKET = '1'
+    LIMIT = '2'
+
+
+class TriggerPriceDirection(Enum):
+    TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_UP_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE = 'U'
+    TRIGGER_IF_THE_PRICE_OF_THE_SPECIFIED_TYPE_GOES_DOWN_TO_OR_THROUGH_THE_SPECIFIED_TRIGGER_PRICE = 'D'
+
+
+class TriggerPriceType(Enum):
+    BEST_OFFER = '1'
+    LAST_TRADE = '2'
+    BEST_BID = '3'
+    BEST_BID_OR_LAST_TRADE = '4'
+    BEST_OFFER_OR_LAST_TRADE = '5'
+    BEST_MID = '6'
+
+
+class TriggerPriceTypeScope(Enum):
+    NONE = '0'
+    LOCAL = '1'
+    NATIONAL = '2'
+    GLOBAL = '3'
+
+
+class TriggerType(Enum):
+    PARTIAL_EXECUTION = '1'
+    SPECIFIED_TRADING_SESSION = '2'
+    NEXT_AUCTION = '3'
+    PRICE_MOVEMENT = '4'
+
+
+class UnderlyingCashType(Enum):
+    FIXED = 'FIXED'
+    DIFF = 'DIFF'
+
+
+class UnderlyingFXRateCalc(Enum):
+    DIVIDE = 'D'
+    MULTIPLY = 'M'
+
+
+class UnderlyingSettlementType(Enum):
+    T_PLUS_1 = '2'
+    T_PLUS_3 = '4'
+    T_PLUS_4 = '5'
+
+
+class UnitOfMeasure(Enum):
+    BARRELS = 'Bbl'
+    BILLION_CUBIC_FEET = 'Bcf'
+    BUSHELS = 'Bu'
+    POUNDS = 'lbs'
+    GALLONS = 'Gal'
+    MILLION_BARRELS = 'MMbbl'
+    ONE_MILLION_BTU = 'MMBtu'
+    MEGAWATT_HOURS = 'MWh'
+    TROY_OUNCES = 'oz_tr'
+    METRIC_TONS = 't'
+    TONS = 'tn'
+    US_DOLLARS = 'USD'
 
 
 class UnsolicitedIndicator(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class Urgency(Enum):
@@ -3304,9 +4235,9 @@ class Urgency(Enum):
 
 
 class UserRequestType(Enum):
-    LOGONUSER = '1'
-    LOGOFFUSER = '2'
-    CHANGEPASSWORDFORUSER = '3'
+    LOG_ON_USER = '1'
+    LOG_OFF_USER = '2'
+    CHANGE_PASSWORD_FOR_USER = '3'
     REQUEST_INDIVIDUAL_USER_STATUS = '4'
 
 
@@ -3320,23 +4251,23 @@ class UserStatus(Enum):
 
 
 class WorkingIndicator(Enum):
-    YES = 'Y'
     NO = 'N'
+    YES = 'Y'
 
 
 class YieldType(Enum):
     AFTER_TAX_YIELD = 'AFTERTAX'
     ANNUAL_YIELD = 'ANNUAL'
     YIELD_AT_ISSUE = 'ATISSUE'
-    YIELD_TO_AVERAGE_MATURITY = 'AVGMATURITY'
+    YIELD_TO_AVG_MATURITY = 'AVGMATURITY'
     BOOK_YIELD = 'BOOK'
     YIELD_TO_NEXT_CALL = 'CALL'
     YIELD_CHANGE_SINCE_CLOSE = 'CHANGE'
     CLOSING_YIELD = 'CLOSE'
     COMPOUND_YIELD = 'COMPOUND'
     CURRENT_YIELD = 'CURRENT'
+    GVNT_EQUIVALENT_YIELD = 'GOVTEQUIV'
     TRUE_GROSS_YIELD = 'GROSS'
-    GOVERNMENT_EQUIVALENT_YIELD = 'GOVTEQUIV'
     YIELD_WITH_INFLATION_ASSUMPTION = 'INFLATION'
     INVERSE_FLOATER_BOND_YIELD = 'INVERSEFLOATER'
     MOST_RECENT_CLOSING_YIELD = 'LASTCLOSE'
@@ -3348,14 +4279,14 @@ class YieldType(Enum):
     YIELD_TO_MATURITY = 'MATURITY'
     YIELD_TO_NEXT_REFUND = 'NEXTREFUND'
     OPEN_AVERAGE_YIELD = 'OPENAVG'
-    YIELD_TO_NEXT_PUT = 'PUT'
     PREVIOUS_CLOSE_YIELD = 'PREVCLOSE'
     PROCEEDS_YIELD = 'PROCEEDS'
+    YIELD_TO_NEXT_PUT = 'PUT'
     SEMI_ANNUAL_YIELD = 'SEMIANNUAL'
     YIELD_TO_SHORTEST_AVERAGE_LIFE = 'SHORTAVGLIFE'
     SIMPLE_YIELD = 'SIMPLE'
     TAX_EQUIVALENT_YIELD = 'TAXEQUIV'
     YIELD_TO_TENDER_DATE = 'TENDER'
     TRUE_YIELD = 'TRUE'
-    YIELD_VALUE_OF_1_32 = 'VALUE1/32'
+    YIELD_VALUE_OF_1_32 = 'VALUE1_32'
     YIELD_TO_WORST = 'WORST'

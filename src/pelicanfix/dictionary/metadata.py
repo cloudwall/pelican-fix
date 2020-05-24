@@ -35,6 +35,8 @@ class FIXType(Enum):
     TZTIMESTAMP = auto()
     XMLDATA = auto()
     LANGUAGE = auto()
+    DATE = auto()
+    TIME = auto()
 
 
 class FIXEnum:

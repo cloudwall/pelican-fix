@@ -1,0 +1,5 @@
+include *.rst
+include *.txt
+include *.yml
+include LICENSE
+include Makefile
