@@ -8,7 +8,7 @@ from pelicanfix.protocol.fix44 import Field, MsgType, Side, HandlInst, SecurityI
 
 def main():
     msg = simplefix.FixMessage()
-    msg.append_pair(Field.BEGIN_STRING.value.get_number(), 'FIX.4.2')
+    msg.append_pair(Field.BEGIN_STRING.value.get_number(), 'FIX.4.4')
     msg.append_pair(Field.MSG_TYPE.value.get_number(), MsgType.ORDER_SINGLE.value)
     msg.append_pair(Field.PRICE.value.get_number(), "%0.2f" % (random.random() * 2 + 10))
     msg.append_pair(Field.ORDER_QTY.value.get_number(), int(random.random() * 100))
