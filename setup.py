@@ -15,15 +15,15 @@ requires = [
 ]
 
 setuptools.setup(
-    name='pytau',
-    version='0.0.1',
+    name='pelican-fix',
+    version='0.0.2',
     description='A Python FIX engine.',
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/x-rst',
     license='MIT',
     author='Kyle F. Downey',
     author_email='kyle.downey@gmail.com',
-    url='https://github.com/cloudwall/pelican',
+    url='https://github.com/cloudwall/pelican-fix',
     packages=setuptools.find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],

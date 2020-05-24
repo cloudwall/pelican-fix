@@ -2,7 +2,7 @@ Pelican FIX Engine
 ==================
 
 .. image:: https://dev.azure.com/cloudwall/Pelican/_apis/build/status/cloudwall.pelican?branchName=master
-    :target: https://dev.azure.com/cloudwall/Pelican/_build/latest?definitionId=3
+    :target: https://dev.azure.com/cloudwall/Pelican/_build/latest?definitionId=9
 
 .. image:: https://img.shields.io/pypi/v/pelican-fix.svg
     :target: https://pypi.org/project/pelican-fix/
