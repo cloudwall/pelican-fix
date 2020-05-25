@@ -36,6 +36,7 @@ class Codec(ABC):
     def create_heartbeat_msg(self) -> FIXMessageContainer:
         pass
 
+    @abstractmethod
     def create_resend_request(self, begin_seq_no: int, end_seq_no: int) -> FIXMessageContainer:
         pass
 
@@ -129,6 +130,13 @@ class SimpleFixCodec(Codec):
     def create_heartbeat_msg(self) -> FIXMessageContainer:
         msg = self.create_message()
         msg.set_field(self.protocol.Field.MSG_TYPE, self.protocol.MsgType.HEARTBEAT.value)
+        return msg
+
+    def create_resend_request(self, begin_seq_no: int, end_seq_no: int) -> FIXMessageContainer:
+        msg = self.create_message()
+        msg.set_field(self.protocol.Field.MSG_TYPE, self.protocol.MsgType.HEARTBEAT.value)
+        msg.set_field(self.protocol.Field.BEGIN_SEQ_NO, str(begin_seq_no))
+        msg.set_field(self.protocol.Field.END_SEQ_NO, str(end_seq_no))
         return msg
 
     def get_session_msg_types(self) -> List[str]:

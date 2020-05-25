@@ -33,8 +33,8 @@ class SqliteJournalProvider(JournalProvider):
         self.cursor.execute("SELECT sessionId, targetCompId, senderCompId, outboundSeqNo, inboundSeqNo FROM session")
         for sessionInfo in self.cursor:
             session = FIXSession(sessionInfo[0], sessionInfo[1], sessionInfo[2])
-            session.sndSeqNum = sessionInfo[3]
-            session.nextExpectedMsgSeqNum = sessionInfo[4] + 1
+            session.send_seq_num = sessionInfo[3]
+            session.next_expected_msg_seq_num = sessionInfo[4] + 1
             sessions.append(session)
 
         return sessions

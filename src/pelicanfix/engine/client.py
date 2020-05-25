@@ -57,7 +57,7 @@ class FIXClientConnectionHandler(FIXConnectionHandler):
                     return
         elif self.connection_state == ConnectionState.LOGGED_IN:
             # compids are reversed here
-            if not self.session.validateCompIds(sender_comp_id, target_comp_id):
+            if not self.session.validate_comp_ids(sender_comp_id, target_comp_id):
                 logging.error("Received message with unexpected comp ids")
                 await self.disconnect()
                 return

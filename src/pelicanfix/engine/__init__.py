@@ -48,21 +48,13 @@ class FIXSession:
         self.messages = None
         self.next_expected_msg_seq_num = None
 
-        self.reset_msgs()
+        self.__reset_msgs()
 
     def get_sender_comp_id(self):
         return self.sender_comp_id
 
     def get_target_comp_id(self):
         return self.target_comp_id
-
-    def reset_msgs(self):
-        self.send_seq_num = 0
-        self.next_expected_msg_seq_num = 1
-        self.messages = {
-            MessageDirection.OUTBOUND: {},
-            MessageDirection.INBOUND: {}
-        }
 
     def validate_comp_ids(self, target_comp_id: str, sender_comp_id: str):
         return self.sender_comp_id == sender_comp_id and self.target_comp_id == target_comp_id
@@ -79,15 +71,19 @@ class FIXSession:
         else:
             return True, seq_no
 
-    def reset_seq_no(self):
-        self.send_seq_num = 0
-        self.next_expected_msg_seq_num = 1
-
     def set_recv_seq_no(self, seq_no: int):
         if self.next_expected_msg_seq_num != seq_no:
             self.logger.warning(f'SeqNum from client unexpected (Rcvd: {seq_no} '
                                 f'Expected: {self.next_expected_msg_seq_num})')
         self.next_expected_msg_seq_num = int(seq_no) + 1
+
+    def __reset_msgs(self):
+        self.send_seq_num = 0
+        self.next_expected_msg_seq_num = 1
+        self.messages = {
+            MessageDirection.OUTBOUND: {},
+            MessageDirection.INBOUND: {}
+        }
 
 
 class JournalProvider(ABC):
@@ -117,7 +113,7 @@ class SessionManager:
         for session in self.journal_provider.get_sessions():
             self.sessions[session.key] = session
 
-    def create_session(self, target_comp_id: str, sender_comp_id: str):
+    def create_session(self, target_comp_id: str, sender_comp_id: str) -> FIXSession:
         if self.__find_session_by_comp_ids(target_comp_id, sender_comp_id) is None:
             session = self.journal_provider.create_session(target_comp_id, sender_comp_id)
             self.sessions[session.key] = session
@@ -125,10 +121,10 @@ class SessionManager:
             raise RuntimeError("Failed to add session with duplicate key")
         return session
 
-    def get_session(self, identifier: str):
+    def get_session(self, identifier: str) -> FIXSession:
         return self.sessions.get(identifier, None)
 
-    def get_or_create_session_from_comp_ids(self, target_comp_id: str, sender_comp_id: str):
+    def get_or_create_session_from_comp_ids(self, target_comp_id: str, sender_comp_id: str) -> FIXSession:
         session = self.__find_session_by_comp_ids(target_comp_id, sender_comp_id)
         if session is None:
             if self.validate_session(target_comp_id, sender_comp_id):
@@ -141,7 +137,7 @@ class SessionManager:
         # this make any session we receive valid
         return True
 
-    def __find_session_by_comp_ids(self, target_comp_id: str, sender_comp_id: str):
+    def __find_session_by_comp_ids(self, target_comp_id: str, sender_comp_id: str) -> FIXSession:
         sessions = [x for x in self.sessions.values() if
                     x.target_comp_id == target_comp_id and x.sender_comp_id == sender_comp_id]
         if sessions is not None and len(sessions) != 0:
