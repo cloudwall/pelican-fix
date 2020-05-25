@@ -3,6 +3,9 @@ from enum import Enum
 from pelicanfix.protocol import FIXField
 
 
+BEGIN_STRING = 'FIX.4.4'
+
+
 class Field(Enum):
     ACCOUNT = FIXField('Account', 1)
     ACCOUNT_TYPE = FIXField('AccountType', 581)
