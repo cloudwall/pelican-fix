@@ -1,6 +1,9 @@
+import importlib
 from abc import ABC, abstractmethod
 from datetime import datetime
 from typing import List
+
+import simplefix
 
 from pelicanfix.engine import FIXSession, FIXMessageContainer
 
@@ -15,7 +18,7 @@ class DecodingError(Exception):
 
 class Codec(ABC):
     def __init__(self, protocol):
-        self.protocol = protocol
+        self.protocol = importlib.import_module(protocol)
 
     @staticmethod
     def current_datetime():
@@ -75,3 +78,63 @@ class Codec(ABC):
     @abstractmethod
     def decode(self, raw_msg):
         pass
+
+
+class SimpleFixMessageContainer(FIXMessageContainer):
+    def __init__(self, message: simplefix.FixMessage = None):
+        if message is None:
+            message = simplefix.FixMessage()
+        self.message = message
+
+    def has_field(self, number: int):
+        return number in self.message
+
+    def get_field(self, number: int) -> str:
+        return self.message.get(number).decode('utf-8')
+
+    def set_field(self, number: int, value: str):
+        return self.message.append_pair(number, value)
+
+    def remove_field(self, number: int):
+        return self.message.remove(number)
+
+    def encode(self):
+        return self.message.encode()
+
+
+class SimpleFixCodec(Codec):
+    def __init__(self, protocol):
+        super().__init__(protocol)
+
+    def create_message(self) -> FIXMessageContainer:
+        msg = SimpleFixMessageContainer()
+        msg.set_field(self.protocol.Field.BEGIN_STRING.value.get_number(), self.protocol.BEGIN_STRING)
+        return msg
+
+    def create_logon_msg(self) -> FIXMessageContainer:
+        msg = self.create_message()
+        msg.set_field(self.protocol.Field.MSG_TYPE.value.get_number(), self.protocol.MsgType.LOGON.value)
+        msg.set_field(self.protocol.Field.ENCRYPT_METHOD.value.get_number(), '0')
+        msg.set_field(self.protocol.Field.HEART_BT_INT.value.get_number(), '30')
+        return msg
+
+    def create_heartbeat_msg(self) -> FIXMessageContainer:
+        msg = self.create_message()
+        msg.set_field(self.protocol.Field.MSG_TYPE.value.get_number(), self.protocol.MsgType.HEARTBEAT.value)
+        return msg
+
+    def get_session_msg_types(self) -> List[str]:
+        return [
+            self.protocol.MsgType.LOGON.value,
+            self.protocol.MsgType.HEARTBEAT.value,
+            self.protocol.MsgType.TEST_REQUEST.value,
+        ]
+
+    def decode(self, raw_msg):
+        parser = simplefix.FixParser()
+        parser.append_buffer(raw_msg)
+        msg = parser.get_message()
+        if msg is not None:
+            return SimpleFixMessageContainer(msg), len(raw_msg)
+        else:
+            return None, len(raw_msg)

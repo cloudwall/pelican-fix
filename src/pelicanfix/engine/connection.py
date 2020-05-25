@@ -1,5 +1,4 @@
 import asyncio
-import importlib
 import logging
 import sys
 
@@ -112,7 +111,7 @@ class FIXConnectionHandler(object):
             if msg_type in self.codec.get_session_msg_types():
                 (recv_seq_no, responses) = await self.handle_session_message(decoded_msg)
             else:
-                recv_seq_no = decoded_msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number())
+                recv_seq_no = int(decoded_msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number()))
 
             # validate the seq number
             (seq_no_state, last_known_seq_no) = self.session.validate_recv_seq_no(recv_seq_no)
@@ -161,7 +160,7 @@ class FIXConnectionHandler(object):
         if self.connection_state != ConnectionState.CONNECTED and self.connection_state != ConnectionState.LOGGED_IN:
             return
 
-        encoded_msg = self.codec.encode(msg, self.session).encode('utf-8')
+        encoded_msg = self.codec.encode(msg, self.session)
         self.writer.write(encoded_msg)
         await self.writer.drain()
         decoded_msg, junk = self.codec.decode(encoded_msg)
@@ -242,7 +241,7 @@ class FIXConnectionHandler(object):
 class FIXEndPoint(object):
     def __init__(self, engine, protocol):
         self.engine = engine
-        self.protocol = importlib.import_module(protocol)
+        self.protocol = protocol
 
         self.connections = []
         self.connection_handlers = []

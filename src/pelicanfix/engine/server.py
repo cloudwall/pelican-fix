@@ -15,7 +15,7 @@ class FIXServerConnectionHandler(FIXConnectionHandler):
     async def handle_session_message(self, msg: FIXMessageContainer):
         protocol = self.codec.protocol
 
-        recv_seq_no = msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number())
+        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number()))
 
         msg_type = msg.get_field(protocol.Field.MSG_TYPE.value.get_number())
         target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID.value.get_number())

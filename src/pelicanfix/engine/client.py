@@ -7,10 +7,10 @@ from pelicanfix.engine.connection import FIXConnectionHandler, ConnectionState, 
 
 
 class FIXClientConnectionHandler(FIXConnectionHandler):
-    def __init__(self, engine, protocol, target_comp_id: str, sender_comp_id: str, reader, writer, addr=None,
+    def __init__(self, engine, codec, target_comp_id: str, sender_comp_id: str, reader, writer, addr=None,
                  observer=None, target_sub_id: str = None, sender_sub_id: str = None, heartbeat_timeout: float = 30,
                  heartbeat: int = 1):
-        FIXConnectionHandler.__init__(self, engine, protocol, reader, writer, addr, observer)
+        FIXConnectionHandler.__init__(self, engine, codec, reader, writer, addr, observer)
 
         self.target_comp_id = target_comp_id
         self.sender_comp_id = sender_comp_id
@@ -25,20 +25,20 @@ class FIXClientConnectionHandler(FIXConnectionHandler):
         if self.session is None:
             raise RuntimeError("Failed to create client session")
 
-        self.protocol = protocol
+        self.protocol = codec.protocol
 
         asyncio.ensure_future(self.logon())
 
     async def logon(self):
         logon_msg = self.codec.create_logon_msg()
-        logon_msg.set_field(self.protocol.fixtags.HeartBtInt, str(self.heartbeat))
+        logon_msg.set_field(self.protocol.Field.HEART_BT_INT.value.get_number(), str(self.heartbeat))
         await self.send_msg(logon_msg)
 
     async def handle_session_message(self, msg: FIXMessageContainer):
         protocol = self.codec.protocol
         responses = []
 
-        recv_seq_no = msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number())
+        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number()))
 
         msg_type = msg.get_field(protocol.Field.MSG_TYPE.value.get_number())
         target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID.value.get_number())
