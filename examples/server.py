@@ -16,7 +16,7 @@ class Side(Enum):
 
 class Server(FIXEngine):
     def __init__(self):
-        FIXEngine.__init__(self, SqliteJournalProvider())
+        FIXEngine.__init__(self, SqliteJournalProvider('server.store'))
         # create a FIX Server using the FIX 4.2 standard
         self.server = FIXServer(self, SimpleFixCodec('pelicanfix.protocol.fix44'))
 
@@ -47,63 +47,63 @@ class Server(FIXEngine):
     # noinspection PyMethodMayBeStatic
     async def on_login(self, connection_handler, msg):
         codec = connection_handler.codec
-        logging.info("[" + msg.get_field(codec.protocol.Field.SENDER_COMP_ID.value.get_number()) + "] <---- "
-                     + msg.get_field(codec.protocol.Field.MSG_TYPE.value.get_number()))
+        logging.info("[" + msg.get_field(codec.protocol.Field.SENDER_COMP_ID) + "] <---- "
+                     + msg.get_field(codec.protocol.Field.MSG_TYPE))
 
     # noinspection PyMethodMayBeStatic
     async def on_new_order(self, connection_handler, request):
         codec = connection_handler.codec
         protocol = codec.protocol
         try:
-            side = Side(int(request.get_field(codec.protocol.Field.SIDE.value.get_number())))
+            side = Side(int(request.get_field(codec.protocol.Field.SIDE)))
             logging.debug("<--- [%s] %s: %s %s %s@%s" % (
-                request.get_field(codec.protocol.Field.MSG_TYPE.value.get_number()),
-                request.get_field(codec.protocol.Field.CL_ORD_ID.value.get_number()),
-                request.get_field(codec.protocol.Field.SYMBOL.value.get_number()),
-                side.name, request.get_field(codec.protocol.Field.ORDER_QTY.value.get_number()),
-                request.get_field(codec.protocol.Field.PRICE.value.get_number())))
+                request.get_field(codec.protocol.Field.MSG_TYPE),
+                request.get_field(codec.protocol.Field.CL_ORD_ID),
+                request.get_field(codec.protocol.Field.SYMBOL),
+                side.name, request.get_field(codec.protocol.Field.ORDER_QTY),
+                request.get_field(codec.protocol.Field.PRICE)))
 
             # respond with an ExecutionReport Ack
             msg = codec.create_message()
-            msg.set_field(protocol.Field.MSG_TYPE.value.get_number(), protocol.MsgType.EXECUTION_REPORT.value)
-            msg.set_field(protocol.Field.PRICE.value.get_number(),
-                          request.get_field(protocol.Field.PRICE.value.get_number()))
-            msg.set_field(protocol.Field.ORDER_QTY.value.get_number(),
-                          request.get_field(protocol.Field.ORDER_QTY.value.get_number()))
-            msg.set_field(protocol.Field.SYMBOL.value.get_number(),
-                          request.get_field(protocol.Field.SYMBOL.value.get_number()))
-            msg.set_field(protocol.Field.SECURITY_ID.value.get_number(), "GB00BH4HKS39")
-            msg.set_field(protocol.Field.SECURITY_ID_SOURCE.value.get_number(), "4")
-            msg.set_field(protocol.Field.ACCOUNT.value.get_number(),
-                          request.get_field(protocol.Field.ACCOUNT.value.get_number()))
-            msg.set_field(protocol.Field.HANDL_INST.value.get_number(), "1")
-            msg.set_field(protocol.Field.ORD_STATUS.value.get_number(), "0")
-            msg.set_field(protocol.Field.EXEC_TYPE.value.get_number(), "0")
-            msg.set_field(protocol.Field.LEAVES_QTY.value.get_number(), "0")
-            msg.set_field(protocol.Field.SIDE.value.get_number(),
-                          request.get_field(protocol.Field.SIDE.value.get_number()))
-            msg.set_field(protocol.Field.CL_ORD_ID.value.get_number(),
-                          request.get_field(protocol.Field.CL_ORD_ID.value.get_number()))
-            msg.set_field(protocol.Field.CURRENCY.value.get_number(),
-                          request.get_field(protocol.Field.CURRENCY.value.get_number()))
+            msg.set_field(protocol.Field.MSG_TYPE, protocol.MsgType.EXECUTION_REPORT.value)
+            msg.set_field(protocol.Field.PRICE,
+                          request.get_field(protocol.Field.PRICE))
+            msg.set_field(protocol.Field.ORDER_QTY,
+                          request.get_field(protocol.Field.ORDER_QTY))
+            msg.set_field(protocol.Field.SYMBOL,
+                          request.get_field(protocol.Field.SYMBOL))
+            msg.set_field(protocol.Field.SECURITY_ID, "GB00BH4HKS39")
+            msg.set_field(protocol.Field.SECURITY_ID_SOURCE, "4")
+            msg.set_field(protocol.Field.ACCOUNT,
+                          request.get_field(protocol.Field.ACCOUNT))
+            msg.set_field(protocol.Field.HANDL_INST, "1")
+            msg.set_field(protocol.Field.ORD_STATUS, "0")
+            msg.set_field(protocol.Field.EXEC_TYPE, "0")
+            msg.set_field(protocol.Field.LEAVES_QTY, "0")
+            msg.set_field(protocol.Field.SIDE,
+                          request.get_field(protocol.Field.SIDE))
+            msg.set_field(protocol.Field.CL_ORD_ID,
+                          request.get_field(protocol.Field.CL_ORD_ID))
+            msg.set_field(protocol.Field.CURRENCY,
+                          request.get_field(protocol.Field.CURRENCY))
 
             await connection_handler.send_msg(msg)
             logging.debug("---> [%s] %s: %s %s %s@%s" % (
-                msg.get_field(protocol.Field.MSG_TYPE.value.get_number()),
-                msg.get_field(protocol.Field.CL_ORD_ID.value.get_number()),
-                request.get_field(protocol.Field.SYMBOL.value.get_number()),
+                msg.get_field(protocol.Field.MSG_TYPE),
+                msg.get_field(protocol.Field.CL_ORD_ID),
+                request.get_field(protocol.Field.SYMBOL),
                 side.name,
-                request.get_field(protocol.Field.ORDER_QTY.value.get_number()),
-                request.get_field(protocol.Field.PRICE.value.get_number())))
+                request.get_field(protocol.Field.ORDER_QTY),
+                request.get_field(protocol.Field.PRICE)))
         except Exception as e:
             msg = codec.create_message()
-            msg.set_field(protocol.Field.MSG_TYPE.value.get_number(), protocol.MsgType.EXECUTION_REPORT.value)
-            msg.set_field(protocol.Field.ORD_STATUS.value.get_number(), "4")
-            msg.set_field(protocol.Field.EXEC_TYPE.value.get_number(), "4")
-            msg.set_field(protocol.Field.LEAVES_QTY.value.get_number(), "0")
-            msg.set_field(protocol.Field.TEXT.value.get_number(), str(e))
-            msg.set_field(protocol.Field.CL_ORD_ID.value.get_number(),
-                          request.get_field(protocol.Field.CL_ORD_ID.value.get_number()))
+            msg.set_field(protocol.Field.MSG_TYPE, protocol.MsgType.EXECUTION_REPORT.value)
+            msg.set_field(protocol.Field.ORD_STATUS, "4")
+            msg.set_field(protocol.Field.EXEC_TYPE, "4")
+            msg.set_field(protocol.Field.LEAVES_QTY, "0")
+            msg.set_field(protocol.Field.TEXT, str(e))
+            msg.set_field(protocol.Field.CL_ORD_ID,
+                          request.get_field(protocol.Field.CL_ORD_ID))
 
             await connection_handler.send_msg(msg)
 

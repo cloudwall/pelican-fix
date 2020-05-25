@@ -20,7 +20,7 @@ class FIXMessageContainer(ABC):
         pass
 
     @abstractmethod
-    def get_field(self, number: int) -> str:
+    def get_field(self, field_id) -> str:
         pass
 
     @abstractmethod

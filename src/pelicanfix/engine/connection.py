@@ -137,10 +137,9 @@ class FIXConnectionHandler(object):
             await self.disconnect()
         except DuplicateSeqNoError:
             try:
-                if decoded_msg.get_field(protocol.Field.POSS_DUP_FLAG.value.get_number()) == "Y":
+                if decoded_msg.has_field(protocol.Field.POSS_DUP_FLAG) and \
+                        decoded_msg.get_field(protocol.Field.POSS_DUP_FLAG.value.get_number()) == "Y":
                     self.logger.debug("Received duplicate message with PossDupFlag set")
-            except KeyError:
-                pass
             finally:
                 self.logger.error(
                     "Failed to process message with duplicate seq no (MsgSeqNum: %s) (and no PossDupFlag='Y') "

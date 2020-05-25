@@ -18,7 +18,7 @@ class Side(Enum):
 
 class Client(FIXEngine):
     def __init__(self):
-        FIXEngine.__init__(self, SqliteJournalProvider())
+        FIXEngine.__init__(self, SqliteJournalProvider('client.store'))
         self.clOrdID = 0
         self.msgGenerator = None
 
@@ -55,32 +55,32 @@ class Client(FIXEngine):
         protocol = codec.protocol
 
         msg = codec.create_message()
-        msg.set_field(protocol.Field.MSG_TYPE.value.get_number(), protocol.MsgType.ORDER_SINGLE.value)
-        msg.set_field(protocol.Field.BEGIN_STRING.value.get_number(), 'FIX.4.4')
-        msg.set_field(protocol.Field.MSG_TYPE.value.get_number(), protocol.MsgType.ORDER_SINGLE.value)
-        msg.set_field(protocol.Field.PRICE.value.get_number(), "%0.2f" % (random.random() * 2 + 10))
-        msg.set_field(protocol.Field.ORDER_QTY.value.get_number(), str(int(random.random() * 100)))
-        msg.set_field(protocol.Field.SYMBOL.value.get_number(), "VOD.L")
-        msg.set_field(protocol.Field.SECURITY_ID.value.get_number(), "GB00BH4HKS39")
-        msg.set_field(protocol.Field.SECURITY_ID_SOURCE.value.get_number(),
+        msg.set_field(protocol.Field.MSG_TYPE, protocol.MsgType.ORDER_SINGLE.value)
+        msg.set_field(protocol.Field.BEGIN_STRING, 'FIX.4.4')
+        msg.set_field(protocol.Field.MSG_TYPE, protocol.MsgType.ORDER_SINGLE.value)
+        msg.set_field(protocol.Field.PRICE, "%0.2f" % (random.random() * 2 + 10))
+        msg.set_field(protocol.Field.ORDER_QTY, str(int(random.random() * 100)))
+        msg.set_field(protocol.Field.SYMBOL, "VOD.L")
+        msg.set_field(protocol.Field.SECURITY_ID, "GB00BH4HKS39")
+        msg.set_field(protocol.Field.SECURITY_ID_SOURCE,
                       protocol.SecurityIDSource.ISIN_NUMBER.value)
-        msg.set_field(protocol.Field.ACCOUNT.value.get_number(), "TEST")
-        msg.set_field(protocol.Field.HANDL_INST.value.get_number(),
+        msg.set_field(protocol.Field.ACCOUNT, "TEST")
+        msg.set_field(protocol.Field.HANDL_INST,
                       protocol.HandlInst.AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION.value)
-        msg.set_field(protocol.Field.EX_DESTINATION.value.get_number(), "XLON")
-        msg.set_field(protocol.Field.SIDE.value.get_number(), str(Side.buy.value))
-        msg.set_field(protocol.Field.CL_ORD_ID.value.get_number(), str(uuid.uuid1()))
-        msg.set_field(protocol.Field.CURRENCY.value.get_number(), "GBP")
+        msg.set_field(protocol.Field.EX_DESTINATION, "XLON")
+        msg.set_field(protocol.Field.SIDE, str(Side.buy.value))
+        msg.set_field(protocol.Field.CL_ORD_ID, str(uuid.uuid1()))
+        msg.set_field(protocol.Field.CURRENCY, "GBP")
 
         await connection_handler.send_msg(msg)
-        side = Side(int(msg.get_field(protocol.Field.SIDE.value.get_number())))
+        side = Side(int(msg.get_field(protocol.Field.SIDE)))
         logging.debug("---> [%s] %s: %s %s %s@%s" % (
-            msg.get_field(protocol.Field.MSG_TYPE.value.get_number()),
-            msg.get_field(protocol.Field.CL_ORD_ID.value.get_number()),
-            msg.get_field(protocol.Field.SYMBOL.value.get_number()),
+            msg.get_field(protocol.Field.MSG_TYPE),
+            msg.get_field(protocol.Field.CL_ORD_ID),
+            msg.get_field(protocol.Field.SYMBOL),
             side.name,
-            msg.get_field(protocol.Field.ORDER_QTY.value.get_number()),
-            msg.get_field(protocol.Field.PRICE.value.get_number())))
+            msg.get_field(protocol.Field.ORDER_QTY),
+            msg.get_field(protocol.Field.PRICE)))
 
     # noinspection PyUnusedLocal
     async def on_login(self, connection_handler: FIXConnectionHandler, msg):
@@ -91,19 +91,19 @@ class Client(FIXEngine):
     async def on_execution_report(self, connection_handler: FIXConnectionHandler, msg: FIXMessageContainer):
         codec = connection_handler.codec
         protocol = codec.protocol
-        if msg.has_field(protocol.Field.EXEC_TYPE.value.get_number()):
-            if msg.get_field(protocol.Field.EXEC_TYPE.value.get_number()) == "0":
-                side = Side(int(msg.get_field(protocol.Field.SIDE.value.get_number())))
+        if msg.has_field(protocol.Field.EXEC_TYPE):
+            if msg.get_field(protocol.Field.EXEC_TYPE) == "0":
+                side = Side(int(msg.get_field(protocol.Field.SIDE)))
                 logging.debug("<--- [%s] %s: %s %s %s@%s" % (
-                    msg.get_field(protocol.Field.MSG_TYPE.value.get_number()),
-                    msg.get_field(protocol.Field.CL_ORD_ID.value.get_number()),
-                    msg.get_field(protocol.Field.SYMBOL.value.get_number()),
+                    msg.get_field(protocol.Field.MSG_TYPE),
+                    msg.get_field(protocol.Field.CL_ORD_ID),
+                    msg.get_field(protocol.Field.SYMBOL),
                     side.name,
-                    msg.get_field(protocol.Field.ORDER_QTY.value.get_number()),
-                    msg.get_field(protocol.Field.PRICE.value.get_number())))
-            elif msg.get_field(protocol.Field.EXEC_TYPE.value.get_number()) == "4":
-                reason = "Unknown" if msg.has_field(protocol.Field.TEXT.value.get_number()) else \
-                    msg.get_field(protocol.Field.TEXT.value.get_number())
+                    msg.get_field(protocol.Field.ORDER_QTY),
+                    msg.get_field(protocol.Field.PRICE)))
+            elif msg.get_field(protocol.Field.EXEC_TYPE) == "4":
+                reason = "Unknown" if msg.has_field(protocol.Field.TEXT) else \
+                    msg.get_field(protocol.Field.TEXT)
                 logging.info("Order Rejected '%s'" % (reason,))
         else:
             logging.error("Received execution report without ExecType")

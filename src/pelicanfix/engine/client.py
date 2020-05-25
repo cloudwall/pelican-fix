@@ -31,18 +31,18 @@ class FIXClientConnectionHandler(FIXConnectionHandler):
 
     async def logon(self):
         logon_msg = self.codec.create_logon_msg()
-        logon_msg.set_field(self.protocol.Field.HEART_BT_INT.value.get_number(), str(self.heartbeat))
+        logon_msg.set_field(self.protocol.Field.HEART_BT_INT, str(self.heartbeat))
         await self.send_msg(logon_msg)
 
     async def handle_session_message(self, msg: FIXMessageContainer):
         protocol = self.codec.protocol
         responses = []
 
-        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number()))
+        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM))
 
-        msg_type = msg.get_field(protocol.Field.MSG_TYPE.value.get_number())
-        target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID.value.get_number())
-        sender_comp_id = msg.get_field(protocol.Field.SENDER_COMP_ID.value.get_number())
+        msg_type = msg.get_field(protocol.Field.MSG_TYPE)
+        target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID)
+        sender_comp_id = msg.get_field(protocol.Field.SENDER_COMP_ID)
 
         if msg_type == protocol.MsgType.LOGON.value:
             if self.connection_state == ConnectionState.LOGGED_IN:
@@ -50,7 +50,7 @@ class FIXClientConnectionHandler(FIXConnectionHandler):
             else:
                 try:
                     self.connection_state = ConnectionState.LOGGED_IN
-                    self.heartbeat_period = float(msg.get_field(protocol.Field.HEART_BT_INT.value.get_number()))
+                    self.heartbeat_period = float(msg.get_field(protocol.Field.HEART_BT_INT))
                 except DuplicateSeqNoError:
                     logging.error("Failed to process login request with duplicate seq no")
                     await self.disconnect()
@@ -73,8 +73,8 @@ class FIXClientConnectionHandler(FIXConnectionHandler):
                 # we can treat GapFill and SequenceReset in the same way
                 # in both cases we will just reset the seq number to the
                 # NewSeqNo received in the message
-                new_seq_no = msg.get_field(protocol.Field.NEW_SEQ_NO.value.get_number())
-                if msg.get_field(protocol.Field.GAP_FILL_FLAG.value.get_number()) == "Y":
+                new_seq_no = msg.get_field(protocol.Field.NEW_SEQ_NO)
+                if msg.get_field(protocol.Field.GAP_FILL_FLAG) == "Y":
                     logging.info("Received SequenceReset(GapFill) filling gap from %s to %s"
                                  % (recv_seq_no, new_seq_no))
                 self.session.set_recv_seq_no(int(new_seq_no) - 1)

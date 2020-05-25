@@ -15,11 +15,11 @@ class FIXServerConnectionHandler(FIXConnectionHandler):
     async def handle_session_message(self, msg: FIXMessageContainer):
         protocol = self.codec.protocol
 
-        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM.value.get_number()))
+        recv_seq_no = int(msg.get_field(protocol.Field.MSG_SEQ_NUM))
 
-        msg_type = msg.get_field(protocol.Field.MSG_TYPE.value.get_number())
-        target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID.value.get_number())
-        sender_comp_id = msg.get_field(protocol.Field.SENDER_COMP_ID.value.get_number())
+        msg_type = msg.get_field(protocol.Field.MSG_TYPE)
+        target_comp_id = msg.get_field(protocol.Field.TARGET_COMP_ID)
+        sender_comp_id = msg.get_field(protocol.Field.SENDER_COMP_ID)
         responses = []
 
         if msg_type == protocol.MsgType.LOGON.value:
@@ -32,7 +32,7 @@ class FIXServerConnectionHandler(FIXConnectionHandler):
                 if self.session is not None:
                     try:
                         self.connection_state = ConnectionState.LOGGED_IN
-                        self.heartbeat_period = float(msg.get_field(protocol.Field.HEART_BT_INT.value.get_number()))
+                        self.heartbeat_period = float(msg.get_field(protocol.Field.HEART_BT_INT))
                         responses.append(self.codec.create_logon_msg())
                     except DuplicateSeqNoError:
                         logging.error("Failed to process login request with duplicate seq no")
@@ -59,7 +59,7 @@ class FIXServerConnectionHandler(FIXConnectionHandler):
             elif msg_type == protocol.MsgType.RESEND_REQUEST.value:
                 responses.extend(self._handle_resend_request(msg))
             elif msg_type == protocol.MsgType.SEQUENCE_RESET.value:
-                new_seq_no = msg.get_field(protocol.Field.NEW_SEQ_NO.value.get_number())
+                new_seq_no = msg.get_field(protocol.Field.NEW_SEQ_NO)
                 self.session.set_recv_seq_no(int(new_seq_no) - 1)
                 recv_seq_no = new_seq_no
         else:
